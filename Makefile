@@ -1,4 +1,5 @@
-PATHTOPACK=./electron/resources/app
+ELECTRON_FOLDER=electron
+PATHTOPACK=./$(ELECTRON_FOLDER)/resources/app
 
 .PHONY: up
 up:
@@ -7,8 +8,9 @@ up:
 .PHONY: package
 package:
 	mkdir -p $(PATHTOPACK) && \
-	cp -r src/* $(PATHTOPACK)
+	cp -r src/* $(PATHTOPACK) && \
+	cp todoist $(ELECTRON_FOLDER)
 
 .PHONY: up-package
 up-package:
-	./electron/electron
+	./electron/todoist

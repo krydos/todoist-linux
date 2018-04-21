@@ -11,6 +11,10 @@ package:
 	cp -r src/* $(PATHTOPACK) && \
 	cp todoist $(ELECTRON_FOLDER)
 
+.PHONY: release
+release:
+	zip -r todoist-linux.zip $(ELECTRON_FOLDER)
+
 .PHONY: up-package
 up-package:
 	./electron/todoist

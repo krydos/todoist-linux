@@ -1,0 +1,47 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+}
+
+body > .loader {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 9999999999;
+    background: #eee;
+}
+
+@keyframes blink {
+    0% { opacity: 0.1; }
+    100% { opacity: 1; }
+}
+
+@-webkit-keyframes blink {
+    0% { opacity: 0.1; }
+    100% { opacity: 1; }
+}
+
+.loader .logo {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    top: 50%;
+    left: 50%;
+    margin-top: -66px;
+    margin-left: -66px;
+    -webkit-animation: blink 2s ease-in-out infinite alternate;
+    animation: blink 2s ease-in-out infinite alternate;
+}
+
+.hide {
+    display: none;
+}
+
+#view {
+    display: block;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border: 0;
+}

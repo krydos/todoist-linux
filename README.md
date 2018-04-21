@@ -10,6 +10,10 @@ Installation
 * Just download the archive and unpack it to any place you wish
 * Run `todoist` script
 
+If you wish to add icon to your Gnome3/Cinnamon/Mate menu you can
+use `todoist.desktop` file, here in repo. Just replace `<path>` with absolute path
+to a folder with the unpacked application.
+
 Shortcuts
 ---------
 

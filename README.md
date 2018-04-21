@@ -6,7 +6,7 @@ The app is just an Electron wrapper on Todoist's web version.
 Installation
 ------------
 * Go to [Releases tab](https://github.com/KryDos/todoist-linux/releases)
-* Choose the one you like (the top one is the latest)
+* Choose the one you like (the top one is the latest). `todoist-linux.zip` - is the file you need.
 * Just download the archive and unpack it to any place you wish
 * Run `todoist` script
 

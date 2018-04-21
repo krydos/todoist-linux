@@ -3,7 +3,7 @@ const path = require('path');
 const url = require('url');
 
 function createTray(win) {
-    let tray = new Tray('icons/icon.png');
+    let tray = new Tray(path.join(__dirname, 'icons/icon.png'));
     const contextMenu = Menu.buildFromTemplate([
         { label: 'Show', click:  function(){
             win.show();
@@ -20,8 +20,6 @@ function createTray(win) {
 function setupShortcuts(win)
 {
     globalShortcut.register('CommandOrControl+Alt+a', () => {
-        console.log('shortcut is pressed');
-
         // open quick add popup
         win.webContents.sendInputEvent({
             type: "char",

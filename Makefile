@@ -1,4 +1,4 @@
-ELECTRON_FOLDER=electron
+ELECTRON_FOLDER=todoist-linux
 PATHTOPACK=./$(ELECTRON_FOLDER)/resources/app
 
 .PHONY: up
@@ -17,4 +17,4 @@ release:
 
 .PHONY: up-package
 up-package:
-	./electron/todoist
+	./$(ELECTRON_FOLDER)/todoist

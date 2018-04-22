@@ -2,7 +2,7 @@
 Version=1.0
 Name=Todoist
 Comment=Todoist productivity app
-Exec=/<path>/todoist
+Exec=/<path>/Todoist
 Path=/<path>
 Icon=/<path>/resources/icons/icon.png
 Terminal=false

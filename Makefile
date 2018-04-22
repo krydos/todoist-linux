@@ -1,5 +1,4 @@
-ELECTRON_FOLDER=todoist-linux
-PATHTOPACK=./$(ELECTRON_FOLDER)/resources/app
+BUILD_DIR=Todoist-linux-x64
 
 .PHONY: up
 up:
@@ -7,14 +6,12 @@ up:
 
 .PHONY: package
 package:
-	mkdir -p $(PATHTOPACK) && \
-	cp -r src/* $(PATHTOPACK) && \
-	cp todoist $(ELECTRON_FOLDER)
+	./src/node_modules/.bin/electron-packager src Todoist --platform=linux --arch=x64 --version-string.FileDescription=todoist --overwrite
 
 .PHONY: release
 release:
-	zip -r todoist-linux.zip $(ELECTRON_FOLDER)
+	zip -r todoist-linux.zip $(BUILD_DIR)
 
 .PHONY: up-package
 up-package:
-	./$(ELECTRON_FOLDER)/todoist
+	./$(BUILD_DIR)/Todoist

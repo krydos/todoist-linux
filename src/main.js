@@ -34,6 +34,7 @@ function createWindow () {
     win = new BrowserWindow({
         width: 800,
         height: 600,
+        title: 'Todoist',
         icon: path.join(__dirname, 'icons/icon.png')
     });
 

@@ -1,5 +1,5 @@
 {
-  "name": "todoist-linux-electron",
+  "name": "Todoist",
   "version": "1.0.0",
   "description": "Todoist for linux",
   "main": "main.js",
@@ -15,6 +15,7 @@
   "author": "Ruslan Bekenev",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^1.8.4"
+    "electron": "^1.8.4",
+    "electron-packager": "^12.0.1"
   }
 }

@@ -20,6 +20,10 @@ Shortcuts
 * Ctrl+Alt+a - quick add a task (the global one)
 * All other shortcuts from Todoist exists
 
+Known issues
+------------
+* Quit tray menu sometimes do not work (`killall -9 Todoist` helps)
+
 Why???
 -------
 The main reason is I don't like to have web version opened since I can't easily alt+tab to it.

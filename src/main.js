@@ -66,6 +66,23 @@ function createWindow () {
     });
 }
 
+// make sure we run only one instance of the app
+var win = null;
+
+var shouldQuit = app.makeSingleInstance(function(commandLine, workingDirectory) {
+    // Someone tried to run a second instance, we should focus our window.
+    if (win) {
+        if (win.isMinimized()) win.restore();
+        win.focus();
+    }
+});
+
+if (shouldQuit) {
+    app.quit();
+    return;
+}
+
 app.on('ready', createWindow);
+
 app.commandLine.appendSwitch('high-dpi-support', 1);
 app.commandLine.appendSwitch('force-device-scale-factor', 1);

@@ -2,8 +2,10 @@ const {app, BrowserWindow, Tray, Menu, globalShortcut} = require('electron');
 const path = require('path');
 const url = require('url');
 
+let tray = null;
+
 function createTray(win) {
-    let tray = new Tray(path.join(__dirname, 'icons/icon.png'));
+    tray = new Tray(path.join(__dirname, 'icons/icon.png'));
     const contextMenu = Menu.buildFromTemplate([
         { label: 'Show', click:  function(){
             win.show();

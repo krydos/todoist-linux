@@ -1,6 +1,6 @@
 {
   "name": "Todoist",
-  "version": "1.0.0",
+  "version": "1.3.0",
   "description": "Todoist for linux",
   "main": "main.js",
   "scripts": {
@@ -12,7 +12,7 @@
     "productivity",
     "gtd"
   ],
-  "author": "Ruslan Bekenev",
+  "author": "Ruslan Bekenev <furyinbox@gmail.com>",
   "license": "ISC",
   "devDependencies": {
     "electron": "^1.8.4",

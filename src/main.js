@@ -74,7 +74,7 @@ var win = null;
 var shouldQuit = app.makeSingleInstance(function(commandLine, workingDirectory) {
     // Someone tried to run a second instance, we should focus our window.
     if (win) {
-        if (win.isMinimized()) win.restore();
+        win.show();
         win.focus();
     }
 });

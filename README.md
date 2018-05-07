@@ -9,7 +9,7 @@ Currently only RPM and DEB packages avilable for x64 arch.
 
 You can download the package on [releases](https://github.com/KryDos/todoist-linux/releases) page or you always can get latest build as:
 
-* [DEB package (Debina/Mint/Ubuntu)](https://www.dropbox.com/s/ldv7uf5dxmerqx8/Todoist.deb?dl=0)
+* [DEB package (Debian/Mint/Ubuntu)](https://www.dropbox.com/s/ldv7uf5dxmerqx8/Todoist.deb?dl=0)
 * [RPM package (Fedora/Suse)](https://www.dropbox.com/s/q8m6rxp26bjmfnh/Todoist.rpm?dl=0)
 
 Shortcuts

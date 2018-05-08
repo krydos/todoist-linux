@@ -11,12 +11,14 @@ You can download the package on [releases](https://github.com/KryDos/todoist-lin
 
 * [DEB package (Debian/Mint/Ubuntu)](https://www.dropbox.com/s/ldv7uf5dxmerqx8/Todoist.deb?dl=0)
 * [RPM package (Fedora/Suse)](https://www.dropbox.com/s/q8m6rxp26bjmfnh/Todoist.rpm?dl=0)
+* [Windows portable version](https://www.dropbox.com/s/ve97rxd2i1zhlm1/Todoist.exe?dl=0)
 
 Shortcuts
 ---------
 
-* Ctrl+Alt+a - quick add a task (the global one)
-* All other shortcuts from Todoist exists
+* Ctrl+Alt+a - quick add a task
+* Ctrl+Alt+t - show or hide the app window
+* All other Todoist's shortcuts exists from inside the app window
 
 Why???
 -------

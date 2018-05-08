@@ -3,6 +3,7 @@ const path = require('path');
 const url = require('url');
 
 let tray = null;
+let currentWindowState = 'shown';
 
 function createTray(win) {
     tray = new Tray(path.join(__dirname, 'icons/icon.png'));
@@ -21,6 +22,7 @@ function createTray(win) {
 
 function setupShortcuts(win)
 {
+    // quick add task
     globalShortcut.register('CommandOrControl+Alt+a', () => {
         // open quick add popup
         win.webContents.sendInputEvent({
@@ -28,6 +30,16 @@ function setupShortcuts(win)
             keyCode: 'q'
         });
         win.show();
+    });
+
+    // show/hide
+    globalShortcut.register('CommandOrControl+Alt+t', () => {
+        if (currentWindowState == 'hidden') {
+            win.show();
+            return;
+        }
+
+        win.hide();
     });
 }
 
@@ -65,6 +77,14 @@ function createWindow () {
         }
 
         return false;
+    });
+
+    win.on('hide', function() {
+        currentWindowState = 'hidden';
+    });
+
+    win.on('show', function() {
+        currentWindowState = 'shown';
     });
 }
 

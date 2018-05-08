@@ -7,8 +7,9 @@ up:
 	cd src && npm start
 
 .PHONY: build-all
-build-all: set-version
-	./node_modules/.bin/electron-builder --linux
+build-all:
+	./node_modules/.bin/electron-builder --linux && \
+	./node_modules/.bin/electron-builder --win
 
 .PHONY: archive-unpacked
 archive-unpacked:

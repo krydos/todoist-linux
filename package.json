@@ -7,6 +7,9 @@
         "directories": {
             "app": "src"
         },
+        "win": {
+            "target": "portable"
+        },
         "linux": {
             "target": ["deb", "rpm"],
 	    "category": "Utility;Productivity;"

@@ -1,9 +1,18 @@
 const {app, BrowserWindow, Tray, Menu, globalShortcut} = require('electron');
+const shell = require('electron').shell;
 const path = require('path');
 const url = require('url');
 
+let win = null;
 let tray = null;
 let currentWindowState = 'shown';
+
+function handleRedirect(e, url) {
+    if(url != win.webContents.getURL()) {
+        e.preventDefault()
+        shell.openExternal(url)
+    }
+}
 
 function createTray(win) {
     tray = new Tray(path.join(__dirname, 'icons/icon.png'));
@@ -86,10 +95,11 @@ function createWindow () {
     win.on('show', function() {
         currentWindowState = 'shown';
     });
+
+    win.webContents.on('will-navigate', handleRedirect)
+    win.webContents.on('new-window', handleRedirect)
 }
 
-// make sure we run only one instance of the app
-var win = null;
 
 var shouldQuit = app.makeSingleInstance(function(commandLine, workingDirectory) {
     // Someone tried to run a second instance, we should focus our window.

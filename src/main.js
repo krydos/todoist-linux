@@ -96,7 +96,6 @@ function createWindow () {
         currentWindowState = 'shown';
     });
 
-    win.webContents.on('will-navigate', handleRedirect)
     win.webContents.on('new-window', handleRedirect)
 }
 

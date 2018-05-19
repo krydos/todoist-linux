@@ -50,6 +50,13 @@ function setupShortcuts(win)
 
         win.hide();
     });
+
+    // reload page
+    globalShortcut.register('CommandOrControl+Alt+r', () => {
+        if (currentWindowState == 'shown') {
+            win.reload();
+        }
+    });
 }
 
 function createWindow () {

@@ -18,6 +18,7 @@ Shortcuts
 
 * Ctrl+Alt+a - quick add a task
 * Ctrl+Alt+t - show or hide the app window
+* Ctrl+Alt+r - refresh content on the page
 * All other Todoist's shortcuts exists from inside the app window
 
 Why???

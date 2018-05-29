@@ -5,7 +5,7 @@ The app is just an Electron wrapper on Todoist's web version.
 
 Installation
 ------------
-Currently only RPM and DEB packages avilable for x64 arch.
+Currently only RPM and DEB packages available for x64 arch.
 
 You can download the package on [releases](https://github.com/KryDos/todoist-linux/releases) page or you always can get latest build as:
 
@@ -29,3 +29,17 @@ And I also really wanted to have global shortcuts to quick add a task.
 
 The initial inspiration I got from [this](https://github.com/kamhix/todoist-linux) brilliant package of the same web version.
 Unfortunately it doesn't seem maintained at the moment and has some issues with Tray functionality on latest Ubuntu.
+
+Contribute/Build
+----------------
+
+The build process is very simple:
+
+* run `npm install` in root folder
+* run `npm install` in `src` folder
+
+That's all. Now to run the app you can use `make up` command (in root folder) or `npm start` (in `src` directory).
+
+There is also `make build-all` target. Check it out if you're interesting in building DEB or RPM package.
+
+No rules for contributing. Just sent a pull request.

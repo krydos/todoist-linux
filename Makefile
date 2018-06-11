@@ -1,5 +1,5 @@
 DIST_DIR=dist
-VERSION=1.7.0
+VERSION=1.8.0
 DROPBOX_DIR=~/Dropbox/projects/binaries
 
 .PHONY: up

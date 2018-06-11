@@ -8,10 +8,21 @@ let tray = null;
 let currentWindowState = 'shown';
 
 function handleRedirect(e, url) {
-    if(url != win.webContents.getURL()) {
-        e.preventDefault()
-        shell.openExternal(url)
+    // there may be some popups on the same page
+    if(url == win.webContents.getURL()) {
+        return true;
     }
+
+    // when user is logged in there is link
+    // asks to update the page. It should be opened
+    // in the app and not in the external browser
+    if (url == 'https://todoist.com/app') {
+        win.reload();
+        return true;
+    }
+
+    e.preventDefault()
+    shell.openExternal(url)
 }
 
 function createTray(win) {

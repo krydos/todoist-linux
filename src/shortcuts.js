@@ -1,8 +1,10 @@
 const { globalShortcut } = require('electron');
+const {ShortcutConfig} = require('./shortcutConfig');
 
 class shortcuts {
     constructor(win) {
         this.win = win;
+        this.shortcutConfig = new ShortcutConfig();
     }
 
     registerAllShortcuts() {
@@ -13,7 +15,7 @@ class shortcuts {
 
     // open quick add popup
     registerQuickAddShortcut() {
-        globalShortcut.register('CommandOrControl+Alt+a', () => {
+        globalShortcut.register(this.shortcutConfig.config['quick-add'], () => {
             this.win.webContents.sendInputEvent({
                 type: "char",
                 keyCode: 'q'
@@ -24,7 +26,7 @@ class shortcuts {
 
     // show/hide
     registerShowHideShortcut() {
-        globalShortcut.register('CommandOrControl+Alt+t', () => {
+        globalShortcut.register(this.shortcutConfig.config['show-hide'], () => {
             if (this.win.currentWindowState == 'hidden') {
                 this.win.show();
                 return;
@@ -36,7 +38,7 @@ class shortcuts {
 
     // reload page
     registerReloadShortcut() {
-        globalShortcut.register('CommandOrControl+Alt+r', () => {
+        globalShortcut.register(this.shortcutConfig.config['refresh'], () => {
             if (this.win.currentWindowState == 'shown') {
                 this.win.reload();
             }

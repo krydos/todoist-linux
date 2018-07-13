@@ -3,9 +3,10 @@ const shell = require('electron').shell;
 const path = require('path');
 const url = require('url');
 
-let win = null;
+const shortcuts = require('./shortcuts');
+
+let win = {};
 let tray = null;
-let currentWindowState = 'shown';
 
 function handleRedirect(e, url) {
     // there may be some popups on the same page
@@ -40,36 +41,6 @@ function createTray(win) {
     tray.setContextMenu(contextMenu);
 }
 
-function setupShortcuts(win)
-{
-    // quick add task
-    globalShortcut.register('CommandOrControl+Alt+a', () => {
-        // open quick add popup
-        win.webContents.sendInputEvent({
-            type: "char",
-            keyCode: 'q'
-        });
-        win.show();
-    });
-
-    // show/hide
-    globalShortcut.register('CommandOrControl+Alt+t', () => {
-        if (currentWindowState == 'hidden') {
-            win.show();
-            return;
-        }
-
-        win.hide();
-    });
-
-    // reload page
-    globalShortcut.register('CommandOrControl+Alt+r', () => {
-        if (currentWindowState == 'shown') {
-            win.reload();
-        }
-    });
-}
-
 function createWindow () {
     // Create the browser window.
     win = new BrowserWindow({
@@ -87,9 +58,12 @@ function createWindow () {
         protocol: 'file:',
         slashes: true
     }));
+    
+    win['currentWindowState'] = 'shown';
 
     createTray(win);
-    setupShortcuts(win);
+    shortcutsInstance = new shortcuts(win);
+    shortcutsInstance.registerAllShortcuts();
 
     // react on close and minimzie
     win.on('minimize',function(event){
@@ -107,11 +81,11 @@ function createWindow () {
     });
 
     win.on('hide', function() {
-        currentWindowState = 'hidden';
+        win['currentWindowState'] = 'hidden';
     });
 
     win.on('show', function() {
-        currentWindowState = 'shown';
+        win['currentWindowState'] = 'shown';
     });
 
     win.webContents.on('new-window', handleRedirect)

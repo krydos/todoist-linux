@@ -11,11 +11,14 @@
             "target": "portable"
         },
         "linux": {
-            "target": ["deb", "rpm"],
-	    "category": "Utility;Productivity;"
+            "target": [
+                "deb",
+                "rpm"
+            ],
+            "category": "Utility;Productivity;"
         }
     },
-  "devDependencies": {
-    "electron-builder": "^20.10.0"
-  }
+    "devDependencies": {
+        "electron-builder": "^20.10.0"
+    }
 }

@@ -27,7 +27,7 @@ class ShortcutConfig {
 
     updateShortcutsFromConfigFile() {
         const configPath = path.join(
-            this.getHomeDirectory(),
+            this.getConfigDirectory(),
             CONFIG_FILE_NAME
         );
 
@@ -49,7 +49,7 @@ class ShortcutConfig {
 
     createDefaultConfigFile() {
         const configPath = path.join(
-            this.getHomeDirectory(),
+            this.getConfigDirectory(),
             CONFIG_FILE_NAME
         );
 
@@ -63,17 +63,23 @@ class ShortcutConfig {
         );
     }
 
-    getHomeDirectory() {
+    getConfigDirectory() {
         if (process.platform == 'win32') {
             return process.env.HOMEDRIVE + process.env.HOMEPATH;
         }
 
-        return process.env.HOME;
+        // if possible save config in $XDG_CONFIG_HOME
+        // which is $HOME/.config by default
+        if (process.env.XDG_CONFIG_HOME) {
+            return process.env.XDG_CONFIG_HOME;
+        }
+
+        return process.env.HOME + '/.config';
     }
 
     checkIfConfigFileExists() {
         const configPath = path.join(
-            this.getHomeDirectory(),
+            this.getConfigDirectory(),
             CONFIG_FILE_NAME
         );
         return fs.existsSync(configPath);

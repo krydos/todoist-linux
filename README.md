@@ -21,7 +21,7 @@ Shortcuts
 * Ctrl+Alt+r - refresh content on the page
 * All other Todoist's shortcuts exists from inside the app window
 
-Global shortcuts are configurable via `~/.todoist-linux.json` file.
+Global shortcuts are configurable via `$XDG_CONFIG_HOME/.todoist-linux.json` file (which is `~/.config` by default).
 The file is simple JSON with descriptive keys and values that represends shortcuts.
 Use this [page from Electron docs](https://electronjs.org/docs/api/accelerator#available-modifiers) to get more understanding on possible modifiers (keys) you can use.
 

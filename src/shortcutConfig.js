@@ -88,7 +88,7 @@ class ShortcutConfig {
     getDefaultConfig() {
         return {
             'quick-add': 'CommandOrControl+Alt+a',
-            'show-hide': 'CommandOrControl+Alt+t',
+            'show-hide': 'CommandOrControl+Alt+Q',
             'refresh': 'CommandOrControl+Alt+r'
         }
     }

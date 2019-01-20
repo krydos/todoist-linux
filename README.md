@@ -16,9 +16,9 @@ You can download the package on [releases](https://github.com/KryDos/todoist-lin
 Shortcuts
 ---------
 
-* Ctrl+Alt+a - quick add a task
-* Ctrl+Alt+t - show or hide the app window
-* Ctrl+Alt+r - refresh content on the page
+* Ctrl+Alt+A - quick add a task
+* Ctrl+Alt+Q - show or hide the app window
+* Ctrl+Alt+R - refresh content on the page
 * All other Todoist's shortcuts exists from inside the app window
 
 Global shortcuts are configurable via `$XDG_CONFIG_HOME/.todoist-linux.json` file (which is `~/.config` by default).
@@ -27,7 +27,7 @@ Use this [page from Electron docs](https://electronjs.org/docs/api/accelerator#a
 
 Why???
 -------
-The main reason is I don't like to have web version opened since I can't easily alt+tab to it.
+The main reason is I don't like to have web version opened since I can't easily ALT+TAB to it.
 
 And I also really wanted to have global shortcuts to quick add a task.
 

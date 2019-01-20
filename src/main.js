@@ -1,4 +1,5 @@
 const {app, BrowserWindow, Tray, Menu, globalShortcut} = require('electron');
+const windowStateKeeper = require('electron-window-state');
 const shell = require('electron').shell;
 const path = require('path');
 const url = require('url');
@@ -42,10 +43,18 @@ function createTray(win) {
 }
 
 function createWindow () {
-    // Create the browser window.
+    let mainWindowState = windowStateKeeper({
+      defaultWidth: 800,
+      defaultHeight: 600
+    });
+
+    // use mainWindowState to restore previous
+    // size/position of window
     win = new BrowserWindow({
-        width: 800,
-        height: 600,
+        x: mainWindowState.x,
+        y: mainWindowState.y,
+        width: mainWindowState.width,
+        height: mainWindowState.height,
         title: 'Todoist',
         icon: path.join(__dirname, 'icons/icon.png')
     });
@@ -89,6 +98,9 @@ function createWindow () {
     });
 
     win.webContents.on('new-window', handleRedirect)
+    // manage size/positio of the window
+    // so it can be restore next time
+    mainWindowState.manage(win);
 }
 
 

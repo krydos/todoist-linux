@@ -5,13 +5,11 @@ The app is just an Electron wrapper on Todoist's web version.
 
 Installation
 ------------
-Currently only RPM and DEB packages available for x64 arch.
 
-You can download the package on [releases](https://github.com/KryDos/todoist-linux/releases) page or you always can get latest build as:
+Go to [Releases](https://github.com/KryDos/todoist-linux/releases) page and get RPM/DEB/EXE file.
 
-* [DEB package (Debian/Mint/Ubuntu)](https://www.dropbox.com/s/ldv7uf5dxmerqx8/Todoist.deb?dl=0)
-* [RPM package (Fedora/Suse)](https://www.dropbox.com/s/q8m6rxp26bjmfnh/Todoist.rpm?dl=0)
-* [Windows portable version](https://www.dropbox.com/s/ve97rxd2i1zhlm1/Todoist.exe?dl=0)
+You can also download a package `todoist-linux.zip` that can be run on any linux distro.
+
 
 Shortcuts
 ---------

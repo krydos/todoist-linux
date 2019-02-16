@@ -7,6 +7,7 @@ const url = require('url');
 const shortcuts = require('./shortcuts');
 
 let win = {};
+let gOauthWindow = undefined;
 let tray = null;
 
 function handleRedirect(e, url) {
@@ -20,6 +21,23 @@ function handleRedirect(e, url) {
     // in the app and not in the external browser
     if (url == 'https://todoist.com/app') {
         win.reload();
+        return true;
+    }
+
+    /**
+     * In case of google's oauth login
+     * let's create another window and listen for
+     * its "close" event.
+     * As soon as that event fired we can refresh our
+     * main window.
+     */
+    if (/google.+?oauth/.test(url)) {
+        e.preventDefault();
+        gOauthWindow = new BrowserWindow();
+        gOauthWindow.loadURL(url);
+        gOauthWindow.on('close', () => {
+            win.reload();
+        })
         return true;
     }
 
@@ -67,7 +85,7 @@ function createWindow () {
         protocol: 'file:',
         slashes: true
     }));
-    
+
     win['currentWindowState'] = 'shown';
 
     createTray(win);

@@ -1,4 +1,10 @@
-const {app, BrowserWindow, Tray, Menu, globalShortcut} = require('electron');
+const {
+  app,
+  BrowserWindow,
+  Tray,
+  Menu,
+  globalShortcut,
+} = require('electron');
 const windowStateKeeper = require('electron-window-state');
 const shell = require('electron').shell;
 const path = require('path');
@@ -136,6 +142,3 @@ if (shouldQuit) {
 }
 
 app.on('ready', createWindow);
-
-app.commandLine.appendSwitch('high-dpi-support', 1);
-app.commandLine.appendSwitch('force-device-scale-factor', 1);

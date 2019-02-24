@@ -54,13 +54,22 @@ function handleRedirect(e, url) {
 function createTray(win) {
     tray = new Tray(path.join(__dirname, 'icons/icon.png'));
     const contextMenu = Menu.buildFromTemplate([
-        { label: 'Show', click:  function(){
-            win.show();
-        } },
-        { label: 'Quit', click:  function(){
-            app.isQuiting = true;
-            app.quit();
-        } }
+      {
+        label: 'Show', click:  function() {
+          win.show();
+        }
+      },
+      {
+        label: 'Toggle FullScreen', click:  function() {
+          win.setFullScreen(!win.isFullScreen());
+        }
+      },
+      {
+        label: 'Quit', click:  function() {
+          app.isQuiting = true;
+          app.quit();
+        }
+      }
     ]);
     tray.setToolTip('Todoist');
     tray.setContextMenu(contextMenu);

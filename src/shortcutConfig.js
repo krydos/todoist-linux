@@ -89,7 +89,8 @@ class ShortcutConfig {
         return {
             'quick-add': 'CommandOrControl+Alt+a',
             'show-hide': 'CommandOrControl+Alt+Q',
-            'refresh': 'CommandOrControl+Alt+r'
+            'refresh': 'CommandOrControl+Alt+r',
+            'toggle-fullscreen': 'F11',
         }
     }
 }

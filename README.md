@@ -17,6 +17,8 @@ Shortcuts
 * Ctrl+Alt+A - quick add a task
 * Ctrl+Alt+Q - show or hide the app window
 * Ctrl+Alt+R - refresh content on the page
+* Alt+F4     - quit the app without hidding it to Tray
+* F11        - toggle full screen mode
 * All other Todoist's shortcuts exists from inside the app window
 
 Global shortcuts are configurable via `$XDG_CONFIG_HOME/.todoist-linux.json` file (which is `~/.config` by default).

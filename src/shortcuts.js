@@ -2,8 +2,9 @@ const { globalShortcut } = require('electron');
 const {ShortcutConfig} = require('./shortcutConfig');
 
 class shortcuts {
-    constructor(win) {
+    constructor(win, app) {
         this.win = win;
+        this.app = app;
         this.shortcutConfig = new ShortcutConfig();
     }
 
@@ -12,6 +13,7 @@ class shortcuts {
         this.registerShowHideShortcut();
         this.registerReloadShortcut();
         this.registerFullscreenShortcut();
+        this.registerQuitShortcut();
     }
 
     // open quick add popup
@@ -50,6 +52,16 @@ class shortcuts {
     registerFullscreenShortcut() {
         globalShortcut.register(this.shortcutConfig.config['toggle-fullscreen'], () => {
             this.win.setFullScreen(!this.win.isFullScreen());
+        });
+    }
+
+    registerQuitShortcut() {
+        globalShortcut.register(this.shortcutConfig.config['quit'], () => {
+            // isQuiting is important for
+            // on('close') event where this variable is checked.
+            // In case it is not true then the app just minimized.
+            this.app.isQuiting = true;
+            this.app.quit();
         });
     }
 }

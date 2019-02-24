@@ -91,6 +91,7 @@ class ShortcutConfig {
             'show-hide': 'CommandOrControl+Alt+Q',
             'refresh': 'CommandOrControl+Alt+r',
             'toggle-fullscreen': 'F11',
+            'quit': 'Alt+F4',
         }
     }
 }

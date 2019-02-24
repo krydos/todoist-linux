@@ -104,7 +104,7 @@ function createWindow () {
     win['currentWindowState'] = 'shown';
 
     createTray(win);
-    shortcutsInstance = new shortcuts(win);
+    shortcutsInstance = new shortcuts(win, app);
     shortcutsInstance.registerAllShortcuts();
 
     // react on close and minimzie

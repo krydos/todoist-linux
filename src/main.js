@@ -25,7 +25,7 @@ function handleRedirect(e, url) {
     // when user is logged in there is link
     // asks to update the page. It should be opened
     // in the app and not in the external browser
-    if (url == 'https://todoist.com/app') {
+    if (/https:\/\/todoist\.com\/app/.test(url)) {
         win.reload();
         return true;
     }
@@ -92,7 +92,6 @@ function createWindow () {
         icon: path.join(__dirname, 'icons/icon.png')
     });
 
-    win.setMenu(null);
 
     // and load the index.html of the app.
     win.loadURL(url.format({
@@ -104,6 +103,7 @@ function createWindow () {
     win['currentWindowState'] = 'shown';
 
     createTray(win);
+    win.setMenu(null);
     shortcutsInstance = new shortcuts(win, app);
     shortcutsInstance.registerAllShortcuts();
 
@@ -137,17 +137,13 @@ function createWindow () {
 }
 
 
-var shouldQuit = app.makeSingleInstance(function(commandLine, workingDirectory) {
+app.requestSingleInstanceLock();
+app.on('second-instance', () => {
     // Someone tried to run a second instance, we should focus our window.
     if (win) {
         win.show();
         win.focus();
     }
 });
-
-if (shouldQuit) {
-    app.quit();
-    return;
-}
 
 app.on('ready', createWindow);

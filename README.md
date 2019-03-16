@@ -39,8 +39,7 @@ Contribute/Build
 
 The build process is very simple:
 
-* run `npm install` in root folder
-* run `npm install` in `src` folder
+* run `make env` in project root folder
 
 That's all. Now to run the app you can use `make up` command (in root folder) or `npm start` (in `src` directory).
 

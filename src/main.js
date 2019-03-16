@@ -15,6 +15,7 @@ const shortcuts = require('./shortcuts');
 let win = {};
 let gOauthWindow = undefined;
 let tray = null;
+let contextMenu;
 
 function handleRedirect(e, url) {
     // there may be some popups on the same page
@@ -53,11 +54,19 @@ function handleRedirect(e, url) {
 
 function createTray(win) {
     tray = new Tray(path.join(__dirname, 'icons/icon.png'));
-    const contextMenu = Menu.buildFromTemplate([
+    contextMenu = Menu.buildFromTemplate([
       {
         label: 'Show', click:  function() {
           win.show();
-        }
+        },
+        enabled: false,
+        id: 'show-win'
+      },
+      {
+        label: 'Hide', click:  function() {
+          win.hide();
+        },
+        id: 'hide-win'
       },
       {
         label: 'Toggle FullScreen', click:  function() {
@@ -124,10 +133,16 @@ function createWindow () {
 
     win.on('hide', function() {
         win['currentWindowState'] = 'hidden';
+        contextMenu.getMenuItemById('show-win').enabled = true;
+        contextMenu.getMenuItemById('hide-win').enabled = false;
+        tray.setContextMenu(contextMenu);
     });
 
     win.on('show', function() {
         win['currentWindowState'] = 'shown';
+        contextMenu.getMenuItemById('show-win').enabled = false;
+        contextMenu.getMenuItemById('hide-win').enabled = true;
+        tray.setContextMenu(contextMenu);
     });
 
     win.webContents.on('new-window', handleRedirect)

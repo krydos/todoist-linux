@@ -9,21 +9,21 @@ env:
 .PHONY: up
 up:
 	cd src && npm start
-
+	
 .PHONY: build-rpm
-build-all:
+build-rpm:
 	./node_modules/.bin/electron-builder --linux rpm
 
 .PHONY: build-deb
-build-all:
+build-deb:
 	./node_modules/.bin/electron-builder --linux deb
 
 .PHONY: build-win
-build-all:
+build-win:
 	./node_modules/.bin/electron-builder --win
 
 .PHONY: build-linux
-build-all:
+build-linux:
 	./node_modules/.bin/electron-builder --linux
 
 .PHONY: build-all

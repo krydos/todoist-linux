@@ -39,11 +39,16 @@ Contribute/Build
 
 The build process is very simple:
 
-* run `npm install` in root folder
-* run `npm install` in `src` folder
+* run `make env` in project root folder
 
 That's all. Now to run the app you can use `make up` command (in root folder) or `npm start` (in `src` directory).
 
-There is also `make build-all` target. Check it out if you're interesting in building DEB or RPM package.
+For building 64-bit dist packages:
+
+1. `make build-rpm` to build rpm packages (for Fedora/CentOS/RHEL/SuSE)
+2. `make build-deb` to build deb packages (for Debian/Ubuntu and derivatives)
+3. `make build-win` to build windows executable
+4. `make build-linux` to build both DEB and RPM packages
+5. `make build-all` to build packages for both Windows and Linux
 
 No rules for contributing. Just sent a pull request.

@@ -3,7 +3,6 @@ const {
   BrowserWindow,
   Tray,
   Menu,
-  globalShortcut,
 } = require('electron');
 const windowStateKeeper = require('electron-window-state');
 const shell = require('electron').shell;

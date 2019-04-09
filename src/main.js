@@ -55,25 +55,29 @@ function createTray(win) {
     tray = new Tray(path.join(__dirname, 'icons/icon.png'));
     contextMenu = Menu.buildFromTemplate([
       {
-        label: 'Show', click:  function() {
+        label: 'Show',
+        click:  function() {
           win.show();
         },
         enabled: false,
         id: 'show-win'
       },
       {
-        label: 'Hide', click:  function() {
+        label: 'Hide',
+        click:  function() {
           win.hide();
         },
         id: 'hide-win'
       },
       {
-        label: 'Toggle FullScreen', click:  function() {
+        label: 'Toggle FullScreen',
+        click:  function() {
           win.setFullScreen(!win.isFullScreen());
-        }
+        },
       },
       {
-        label: 'Quit', click:  function() {
+        label: 'Quit',
+        click:  function() {
           app.isQuiting = true;
           app.quit();
         }

@@ -115,7 +115,6 @@ function createWindow () {
     win['currentWindowState'] = 'shown';
 
     createTray(win);
-    win.setMenu(null);
     shortcutsInstance = new shortcuts(win, app);
     shortcutsInstance.registerAllShortcuts();
 

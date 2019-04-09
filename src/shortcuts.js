@@ -12,7 +12,6 @@ class shortcuts {
         this.registerQuickAddShortcut();
         this.registerShowHideShortcut();
         this.registerReloadShortcut();
-        this.registerFullscreenShortcut();
         this.registerQuitShortcut();
     }
 
@@ -45,13 +44,6 @@ class shortcuts {
             if (this.win.currentWindowState == 'shown') {
                 this.win.reload();
             }
-        });
-    }
-
-    // toogle full screen
-    registerFullscreenShortcut() {
-        globalShortcut.register(this.shortcutConfig.config['toggle-fullscreen'], () => {
-            this.win.setFullScreen(!this.win.isFullScreen());
         });
     }
 

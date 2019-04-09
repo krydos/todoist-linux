@@ -1,5 +1,5 @@
 DIST_DIR=dist
-VERSION=1.15.0
+VERSION=1.16.0
 DROPBOX_DIR=~/Dropbox/projects/binaries
 
 .PHONY: env
@@ -9,7 +9,7 @@ env:
 .PHONY: up
 up:
 	cd src && npm start
-	
+
 .PHONY: build-rpm
 build-rpm:
 	./node_modules/.bin/electron-builder --linux rpm

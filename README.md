@@ -51,9 +51,10 @@ After making your changes, you can simply use any of the below commands to build
 
 1. Run `$ make build-rpm` to build `.rpm` packages (for Fedora/CentOS/RHEL/SuSE).
 2. Run `$ make build-deb` to build `.deb` packages (for Debian/Ubuntu and derivatives).
-3. Run `$ make build-win` to build Windows `.exe` files.
-4. Run `$ make build-linux` to build both `.DEB` and `.RPM` packages.
-5. Run `$ make build-all` to build packages for both Windows and Linux (basically all the above).
+3. Run `$ make build-pacman` to build `.pacman` packages (for Arch/Manjaro and derivatives).
+4. Run `$ make build-win` to build Windows `.exe` files.
+5. Run `$ make build-linux` to build both `.DEB` and `.RPM` packages.
+6. Run `$ make build-all` to build packages for both Windows and Linux (basically all the above).
 
 # Contributing
 

@@ -18,6 +18,10 @@ build-rpm:
 build-deb:
 	./node_modules/.bin/electron-builder --linux deb
 
+.PHONY: build-pacman
+build-pacman:
+	./node_modules/.bin/electron-builder --linux pacman
+
 .PHONY: build-win
 build-win:
 	./node_modules/.bin/electron-builder --win

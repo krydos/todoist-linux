@@ -31,13 +31,13 @@ function handleRedirect(e, url) {
     }
 
     /**
-     * In case of google's oauth login
+     * In case of google or facebook oauth login
      * let's create another window and listen for
      * its "close" event.
      * As soon as that event fired we can refresh our
      * main window.
      */
-    if (/google.+?oauth/.test(url)) {
+    if (/google.+?oauth/.test(url) || /facebook.+?oauth/.test(url)) {
         e.preventDefault();
         gOauthWindow = new BrowserWindow();
         gOauthWindow.loadURL(url);

@@ -29,11 +29,12 @@ class shortcuts {
     // show/hide
     registerShowHideShortcut() {
         globalShortcut.register(this.shortcutConfig.config['show-hide'], () => {
-            if (this.win.currentWindowState == 'hidden') {
+            if (!this.win.isFocused()) {
                 this.win.show();
+                this.win.focus();
                 return;
             }
-
+            
             this.win.hide();
         });
     }
@@ -41,7 +42,7 @@ class shortcuts {
     // reload page
     registerReloadShortcut() {
         globalShortcut.register(this.shortcutConfig.config['refresh'], () => {
-            if (this.win.currentWindowState == 'shown') {
+            if (this.win.isFocused()) {
                 this.win.reload();
             }
         });

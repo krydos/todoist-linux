@@ -112,8 +112,6 @@ function createWindow () {
         slashes: true
     }));
 
-    win['currentWindowState'] = 'shown';
-
     createTray(win);
     shortcutsInstance = new shortcuts(win, app);
     shortcutsInstance.registerAllShortcuts();
@@ -134,14 +132,12 @@ function createWindow () {
     });
 
     win.on('hide', function() {
-        win['currentWindowState'] = 'hidden';
         contextMenu.getMenuItemById('show-win').enabled = true;
         contextMenu.getMenuItemById('hide-win').enabled = false;
         tray.setContextMenu(contextMenu);
     });
 
     win.on('show', function() {
-        win['currentWindowState'] = 'shown';
         contextMenu.getMenuItemById('show-win').enabled = false;
         contextMenu.getMenuItemById('hide-win').enabled = true;
         tray.setContextMenu(contextMenu);

@@ -13,7 +13,8 @@
         "linux": {
             "target": [
                 "deb",
-                "rpm"
+                "rpm",
+                "pacman"
             ],
             "category": "Utility;Productivity;"
         }

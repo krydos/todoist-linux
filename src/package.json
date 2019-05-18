@@ -15,7 +15,7 @@
   "author": "Ruslan Bekenev <furyinbox@gmail.com>",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^4.1.0",
+    "electron": "^5.0.1",
     "electron-packager": "^13.1.1"
   },
   "dependencies": {

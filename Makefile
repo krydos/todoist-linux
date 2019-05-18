@@ -4,7 +4,7 @@ DROPBOX_DIR=~/Dropbox/projects/binaries
 
 .PHONY: env
 env:
-	@npm install && cd src && npm install && echo "\nAll development dependencies have been installed successfully!\n"
+	@npm install && cd src && npm install && printf "\nAll development dependencies have been installed successfully!\n\n"
 
 .PHONY: up
 up:

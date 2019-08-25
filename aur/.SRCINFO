@@ -1,4 +1,4 @@
-pkgbase = todoist-linux
+pkgbase = todoist-electron
 	pkgdesc = Electron wrapper for todoist web client.
 	pkgver = 1.17.0
 	pkgrel = 1
@@ -29,5 +29,5 @@ pkgbase = todoist-linux
 	source = https://github.com/KryDos/todoist-linux/releases/download/1.17/Todoist-1.17.0.pacman
 	sha256sums = 2c8a073ccde2f548bfe9e3f59f66b2ac6ec51987c49d5c4e9d89c0e75125d6d9
 
-pkgname = todoist-linux
+pkgname = todoist-electron
 

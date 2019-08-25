@@ -1,6 +1,6 @@
 
 # Maintainer: Ruslan Bekenev <furyinbox at gmail dot com>
-pkgname=todoist-linux
+pkgname=todoist-electron
 _pkgname=Todoist
 pkgver=1.17.0
 rlsver=1.17

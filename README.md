@@ -6,6 +6,12 @@ This app works with both Windows and Linux.
 
 # Installation
 
+## Arch Linux (Thanks to [HadiLatifi](https://github.com/HadiLatifi))
+
+The package is available in AUR. You can install it with `trizen -S todoist-electron`
+
+## Other systems
+
 1. Go to [Releases](https://github.com/KryDos/todoist-linux/releases) page and get the RPM/DEB/EXE package.
 
 2. Most of the time, a simple double-click on the downloaded package should start it's installation (use commands otherwise).

@@ -14,9 +14,9 @@ The package is available in AUR. You can install it with `trizen -S todoist-elec
 
 1. Go to [Releases](https://github.com/KryDos/todoist-linux/releases) page and get the RPM/DEB/EXE package.
 
-2. Most of the time, a simple double-click on the downloaded package should start it's installation (use commands otherwise).
+2. Most of the time, a simple double-click on the downloaded package should start its installation (use shell commands otherwise).
 
-Alternatively, You can also download the `todoist-linux.zip` package that can run on any linux distro.
+Alternatively, you can also download the `todoist-linux.zip` package from [Releases page](https://github.com/KryDos/todoist-linux/releases) that can run on any Linux distro.
 
 ## Keyboard Shortcuts
 
@@ -28,7 +28,7 @@ Alternatively, You can also download the `todoist-linux.zip` package that can ru
 
 * Any other possible shortcuts are available and usable directly from within the app itself.
 
-Global shortcuts are configurable via `$XDG_CONFIG_HOME/.todoist-linux.json` file (which is `~/.config` by default).
+Global shortcuts are configurable via `$XDG_CONFIG_HOME/.todoist-linux.json` file (which is located in `~/.config` by default).
 The file is simple JSON with descriptive keys and values that represents shortcuts and their keybindings.
 
 Use [this page from Electron docs](https://electronjs.org/docs/api/accelerator#available-modifiers) to get a better understanding of what other modifiers (keys) exist that you can use.

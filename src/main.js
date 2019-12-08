@@ -9,12 +9,14 @@ const shell = require('electron').shell;
 const path = require('path');
 const url = require('url');
 
+const {ShortcutConfig} = require('./shortcutConfig');
 const shortcuts = require('./shortcuts');
 
 let win = {};
 let gOauthWindow = undefined;
 let tray = null;
 let contextMenu;
+let config = {};
 
 function handleRedirect(e, url) {
     // there may be some popups on the same page
@@ -52,7 +54,7 @@ function handleRedirect(e, url) {
 }
 
 function createTray(win) {
-    tray = new Tray(path.join(__dirname, 'icons/icon.png'));
+    tray = new Tray(path.join(__dirname, `icons/${config['icon']}`));
     contextMenu = Menu.buildFromTemplate([
       {
         label: 'Show',
@@ -88,6 +90,9 @@ function createTray(win) {
 }
 
 function createWindow () {
+    const configInstance = new ShortcutConfig();
+    config = configInstance.config;
+
     let mainWindowState = windowStateKeeper({
       defaultWidth: 800,
       defaultHeight: 600

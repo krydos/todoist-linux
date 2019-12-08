@@ -91,6 +91,7 @@ class ShortcutConfig {
             'show-hide': 'CommandOrControl+Alt+Q',
             'refresh': 'CommandOrControl+Alt+r',
             'quit': 'Alt+F4',
+            'icon': 'icon.png',
         }
     }
 }

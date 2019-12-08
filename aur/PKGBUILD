@@ -2,8 +2,8 @@
 # Maintainer: Ruslan Bekenev <furyinbox at gmail dot com>
 pkgname=todoist-electron
 _pkgname=Todoist
-pkgver=1.17.0
-rlsver=1.17
+pkgver=1.18.0
+rlsver=1.18
 pkgrel=1
 pkgdesc="Electron wrapper for todoist web client."
 arch=('x86_64')

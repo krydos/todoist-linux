@@ -33,6 +33,12 @@ The file is simple JSON with descriptive keys and values that represents shortcu
 
 Use [this page from Electron docs](https://electronjs.org/docs/api/accelerator#available-modifiers) to get a better understanding of what other modifiers (keys) exist that you can use.
 
+## Additional Configuration
+
+Same config file `.todoist-linux.json` has other options to configure the app:
+
+* `tray-icon` - tray icon to use. Possible options: `icon.png`, `icon_monochrome.png`
+
 ## Why?
 
 The main reason I don't like having the [Todoist web version](https://todoist.com/app) opened is that I can't easily ALT+TAB to it.

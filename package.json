@@ -20,6 +20,6 @@
         }
     },
     "devDependencies": {
-        "electron-builder": "^20.39.0"
+        "electron-builder": "^20.44.4"
     }
 }

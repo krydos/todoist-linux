@@ -54,7 +54,7 @@ function handleRedirect(e, url) {
 }
 
 function createTray(win) {
-    tray = new Tray(path.join(__dirname, `icons/${config['icon']}`));
+    tray = new Tray(path.join(__dirname, `icons/${config['tray-icon']}`));
     contextMenu = Menu.buildFromTemplate([
       {
         label: 'Show',

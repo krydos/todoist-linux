@@ -3,6 +3,7 @@ const {
   BrowserWindow,
   Tray,
   Menu,
+  session
 } = require('electron');
 const windowStateKeeper = require('electron-window-state');
 const shell = require('electron').shell;
@@ -89,8 +90,17 @@ function createTray(win) {
     tray.setContextMenu(contextMenu);
 }
 
+function setCustomUserAgent() {
+  session.defaultSession.webRequest.onBeforeSendHeaders((details, callback) => {
+    details.requestHeaders['User-Agent'] = 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36';
+    callback({ cancel: false, requestHeaders: details.requestHeaders });
+  });
+}
+
 function createWindow () {
-    const configInstance = new ShortcutConfig();
+  setCustomUserAgent();
+
+  const configInstance = new ShortcutConfig();
     config = configInstance.config;
 
     let mainWindowState = windowStateKeeper({

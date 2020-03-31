@@ -17,6 +17,10 @@
                 "pacman"
             ],
             "category": "Utility;Productivity;"
+        },
+        // temporary fix for: https://github.com/electron-userland/electron-builder/issues/3494
+        "pacman": {
+            "depends": ["c-ares", "ffmpeg", "gtk3", "http-parser", "libevent", "libvpx", "libxslt", "libxss", "minizip", "nss", "re2", "snappy", "libnotify", "libappindicator-gtk2", "libappindicator-gtk3"]
         }
     },
     "devDependencies": {

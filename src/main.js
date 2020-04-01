@@ -122,8 +122,8 @@ function createWindow () {
 
     // and load the index.html of the app.
     win.loadURL(url.format({
-      pathname: path.join(__dirname, (config['beta'] ? 'beta.html' : 'index.html')),
-      protocol: 'file:',
+        pathname: path.join(__dirname, (config['beta'] ? 'beta.html' : 'index.html')),
+        protocol: 'file:',
         slashes: true
     }));
 

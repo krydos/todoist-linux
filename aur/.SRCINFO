@@ -1,7 +1,7 @@
 pkgbase = todoist-electron
 	pkgdesc = Electron wrapper for todoist web client.
 	pkgver = 1.19.0
-	pkgrel = 1
+	pkgrel = 2
 	url = https://github.com/KryDos/todoist-linux
 	install = Todoist.install
 	arch = x86_64
@@ -21,7 +21,6 @@ pkgbase = todoist-electron
 	depends = libnotify
 	depends = libappindicator-gtk2
 	depends = libappindicator-gtk3
-	depends = libappindicator-sharp
 	provides = todoist
 	conflicts = todoist
 	options = !strip

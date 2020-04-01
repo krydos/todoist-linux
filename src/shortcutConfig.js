@@ -90,6 +90,7 @@ class ShortcutConfig {
             'quick-add': 'CommandOrControl+Alt+a',
             'show-hide': 'CommandOrControl+Alt+Q',
             'refresh': 'CommandOrControl+Alt+r',
+            'beta': false,
             'quit': 'Alt+F4',
             'tray-icon': 'icon.png',
         }

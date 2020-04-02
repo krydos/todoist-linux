@@ -23,6 +23,7 @@ class shortcuts {
                 keyCode: 'q'
             });
             this.win.show();
+            this.win.webContents.send('focus-quick-add');
         });
     }
 

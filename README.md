@@ -53,9 +53,11 @@ The build process is very simple:
 
 1. Clone the repo using `$ git clone https://github.com/krydos/todoist-linux`.
 
-2. Install project dependencies by running `$ make env` in project root directory.
+2. Ensure NPM is installed with `$ apt-get install npm`.
 
-3.  Now, to run the app, you can do `$ make up` in the project root directory (or `$ npm run start` in the `src` directory).
+3. Install other project dependencies by running `$ make env` in project root directory.
+
+4.  Now, to run the app, you can do `$ make up` in the project root directory (or `$ npm run start` in the `src` directory).
 
 ### Building Packages
 

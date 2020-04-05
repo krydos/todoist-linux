@@ -115,6 +115,8 @@ function createWindow () {
         y: mainWindowState.y,
         width: mainWindowState.width,
         height: mainWindowState.height,
+        minHeight: 600,
+        minWidth: 420,
         title: 'Todoist',
         icon: path.join(__dirname, 'icons/icon.png')
     });

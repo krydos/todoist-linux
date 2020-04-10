@@ -37,7 +37,7 @@ Use [this page from Electron docs](https://electronjs.org/docs/api/accelerator#a
 
 Same config file `.todoist-linux.json` has other options to configure the app:
 
-* `tray-icon` - tray icon to use. Possible options: `icon.png`, `icon_monochrome.png`
+* `tray-icon` - tray icon to use. Possible options: `icon.png`, `icon_monochrome.png`, `null` (to hide tray icon completely)
 
 ## Why?
 

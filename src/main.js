@@ -55,6 +55,11 @@ function handleRedirect(e, url) {
 }
 
 function createTray(win) {
+  // if tray-icon is set to null in config file then don't create a tray icon
+  if (!config['tray-icon']) {
+    return;
+  }
+
   tray = new Tray(path.join(__dirname, `icons/${config['tray-icon']}`));
   contextMenu = Menu.buildFromTemplate([
     {
@@ -140,6 +145,12 @@ function createWindow () {
   });
 
   win.on('close', function (event) {
+    // we should not hide the window if there is no tray icon
+    // because user will not be able to close the app
+    if (!config['tray-icon']) {
+      app.isQuiting = true;
+    }
+
     if(!app.isQuiting){
       event.preventDefault();
       win.hide();

@@ -23,6 +23,10 @@ class shortcuts {
         keyCode: "Escape"
       });
       this.win.webContents.sendInputEvent({
+        type: "keyUp",
+        keyCode: "Escape"
+      });
+      this.win.webContents.sendInputEvent({
         type: "char",
         keyCode: 'q'
       });

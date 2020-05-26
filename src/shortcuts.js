@@ -19,6 +19,10 @@ class shortcuts {
   registerQuickAddShortcut() {
     globalShortcut.register(this.shortcutConfig.config['quick-add'], () => {
       this.win.webContents.sendInputEvent({
+        type: "keyDown",
+        keyCode: "Escape"
+      });
+      this.win.webContents.sendInputEvent({
         type: "char",
         keyCode: 'q'
       });

@@ -86,7 +86,7 @@ function createTray(win) {
     {
       label: 'Quit',
       click:  function() {
-        app.isQuiting = true;
+        app.isQuitting = true;
         app.quit();
       }
     }
@@ -138,7 +138,7 @@ function createWindow () {
   shortcutsInstance = new shortcuts(win, app);
   shortcutsInstance.registerAllShortcuts();
 
-  // react on close and minimzie
+  // react on close and minimize
   win.on('minimize',function(event){
     event.preventDefault();
     win.hide();
@@ -148,10 +148,10 @@ function createWindow () {
     // we should not hide the window if there is no tray icon
     // because user will not be able to close the app
     if (!config['tray-icon']) {
-      app.isQuiting = true;
+      app.isQuitting = true;
     }
 
-    if(!app.isQuiting){
+    if(!app.isQuitting){
       event.preventDefault();
       win.hide();
     }

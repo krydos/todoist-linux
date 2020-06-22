@@ -138,7 +138,7 @@ function createWindow () {
   shortcutsInstance = new shortcuts(win, app);
   shortcutsInstance.registerAllShortcuts();
 
-  // react on close and minimzie
+  // react on close and minimize
   win.on('minimize',function(event){
     event.preventDefault();
     win.hide();

@@ -173,6 +173,19 @@ function handleRedirect(e, url) {
     return true;
   }
 
+  /*
+   * The first time the settings button is clicked 
+   * the 'new-window' event is emitted with the url to the settings page
+   * The electron default behavior(creating a new window) is prevented 
+   * and instead the contents of the main window are reloaded with the contents 
+   * from the settings page effectively emulating the behavior of the website
+   */
+  if (/prefs\/account/.test(url)) {
+    e.preventDefault();
+    win.loadURL(url);
+    return true;
+  }
+
   e.preventDefault()
   shell.openExternal(url)
 }

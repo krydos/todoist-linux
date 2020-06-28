@@ -19,41 +19,6 @@ let tray = null;
 let contextMenu;
 let config = {};
 
-function handleRedirect(e, url) {
-  // there may be some popups on the same page
-  if(url == win.webContents.getURL()) {
-    return true;
-  }
-
-  // when user is logged in there is link
-  // asks to update the page. It should be opened
-  // in the app and not in the external browser
-  if (/https:\/\/todoist\.com\/app/.test(url)) {
-    win.reload();
-    return true;
-  }
-
-  /**
-   * In case of google or facebook oauth login
-   * let's create another window and listen for
-   * its "close" event.
-   * As soon as that event fired we can refresh our
-   * main window.
-   */
-  if (/google.+?oauth/.test(url) || /facebook.+?oauth/.test(url)) {
-    e.preventDefault();
-    gOauthWindow = new BrowserWindow();
-    gOauthWindow.loadURL(url);
-    gOauthWindow.on('close', () => {
-      win.reload();
-    })
-    return true;
-  }
-
-  e.preventDefault()
-  shell.openExternal(url)
-}
-
 function createTray(win) {
   // if tray-icon is set to null in config file then don't create a tray icon
   if (!config['tray-icon']) {
@@ -175,6 +140,41 @@ function createWindow () {
   // manage size/positio of the window
   // so it can be restore next time
   mainWindowState.manage(win);
+}
+
+function handleRedirect(e, url) {
+  // there may be some popups on the same page
+  if (url == win.webContents.getURL()) {
+    return true;
+  }
+
+  // when user is logged in there is link
+  // asks to update the page. It should be opened
+  // in the app and not in the external browser
+  if (/https:\/\/todoist\.com\/app/.test(url)) {
+    win.reload();
+    return true;
+  }
+
+  /**
+   * In case of google or facebook oauth login
+   * let's create another window and listen for
+   * its "close" event.
+   * As soon as that event fired we can refresh our
+   * main window.
+   */
+  if (/google.+?oauth/.test(url) || /facebook.+?oauth/.test(url)) {
+    e.preventDefault();
+    gOauthWindow = new BrowserWindow();
+    gOauthWindow.loadURL(url);
+    gOauthWindow.on('close', () => {
+      win.reload();
+    })
+    return true;
+  }
+
+  e.preventDefault()
+  shell.openExternal(url)
 }
 
 var gotTheLock = app.requestSingleInstanceLock();

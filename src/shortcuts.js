@@ -59,6 +59,10 @@ class shortcuts {
 
   registerQuitShortcut() {
     globalShortcut.register(this.shortcutConfig.config['quit'], () => {
+      if(!this.win.isFocused()) {
+        return;
+      }
+
       // isQuitting is important for
       // on('close') event where this variable is checked.
       // In case it is not true then the app just minimized.

@@ -137,8 +137,8 @@ function createWindow () {
   });
 
   win.webContents.on('new-window', handleRedirect)
-  // manage size/positio of the window
-  // so it can be restore next time
+  // manage size/position of the window
+  // so it can be restored next time
   mainWindowState.manage(win);
 }
 

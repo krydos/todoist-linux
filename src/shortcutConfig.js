@@ -93,6 +93,7 @@ class ShortcutConfig {
       'beta': false,
       'quit': 'Alt+F4',
       'tray-icon': 'icon.png',
+      'minimize-to-tray': true,
     }
   }
 }

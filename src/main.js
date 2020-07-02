@@ -103,10 +103,12 @@ function createWindow () {
   shortcutsInstance = new shortcuts(win, app);
   shortcutsInstance.registerAllShortcuts();
 
-  // react on close and minimize
-  win.on('minimize',function(event){
-    event.preventDefault();
-    win.hide();
+  // Only send to tray on minimize if user is running with tray and minimizing to tray is allowed
+  win.on('minimize',function(event) {
+    if (config['tray-icon'] && config['minimize-to-tray']) {
+      event.preventDefault();
+      win.hide();
+    }
   });
 
   win.on('close', function (event) {

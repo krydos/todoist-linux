@@ -51,7 +51,7 @@ function createTray(win) {
     {
       label: 'Quit',
       click:  function() {
-        app.isQuitting = true;
+        app.forceQuit = true;
         app.quit();
       }
     }
@@ -112,7 +112,7 @@ function createWindow () {
   });
 
   win.on('close', function (event) {
-    if (app.isQuitting || !config['tray-icon'] || !config['close-to-tray']) {  
+    if (app.forceQuit || !config['tray-icon'] || !config['close-to-tray']) {  
       // Do the default electron behaviour which is to close the main window
       return;
     }

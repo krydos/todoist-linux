@@ -112,18 +112,13 @@ function createWindow () {
   });
 
   win.on('close', function (event) {
-    // we should not hide the window if there is no tray icon
-    // because user will not be able to close the app
-    if (!config['tray-icon']) {
-      app.isQuitting = true;
+    if (app.isQuitting || !config['tray-icon'] || !config['close-to-tray']) {  
+      // Do the default electron behaviour which is to close the main window
+      return;
     }
 
-    if(!app.isQuitting){
-      event.preventDefault();
-      win.hide();
-    }
-
-    return false;
+    event.preventDefault();
+    win.hide();
   });
 
   win.on('hide', function() {

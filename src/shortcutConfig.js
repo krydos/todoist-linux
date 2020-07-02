@@ -94,6 +94,7 @@ class ShortcutConfig {
       'quit': 'Alt+F4',
       'tray-icon': 'icon.png',
       'minimize-to-tray': true,
+      'close-to-tray': true,
     }
   }
 }

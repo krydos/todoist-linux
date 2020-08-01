@@ -2,6 +2,7 @@
     "name": "Todoist",
     "main": "src/main.js",
     "author": "Ruslan Bekenev <furyinbox@gmail.com>",
+    "homepage": "https://github.com/krydos/todoist-linux",
     "build": {
         "appId": "com.krydos.todoist",
         "directories": {

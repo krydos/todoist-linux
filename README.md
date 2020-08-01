@@ -10,6 +10,13 @@ This app works with both Windows and Linux.
 
 The package is available in AUR. You can install it with `trizen -S todoist-electron`
 
+## Gentoo Linux
+
+To emerge ebuild in first you should add  [this](https://github.com/wellWINeo/wellWINeo_overlay) overlay to `repos.conf`, sync and after it you'll be able to do it.
+P.S. The original version of the ebuild was taken from [here](https://gitlab.einfach.org/r900/r900-overlay/-/tree/master/net-im%2Ftodoist-bin), but unfortunately it's for the old version and i've modified it a bit for the newer version. 
+
+**NOTE:** for security issues, i recommend you mask all packages (`*/*::<overlay_name>`) and unamsk only `net-im/todoist-bin`.
+
 ## Other systems
 
 1. Go to [Releases](https://github.com/KryDos/todoist-linux/releases) page and get the RPM/DEB/EXE package.

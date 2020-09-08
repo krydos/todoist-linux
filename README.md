@@ -1,8 +1,12 @@
-# Todoist Linux
+# Todoist Linux (Unofficial)
 
 This app is just an [Electron wrapper](https://electronjs.org/) for Todoist's [web version](https://todoist.com/app).
 
 This app works with both Windows and Linux.
+
+# Link to Official Linux app
+
+Doist recently released the official app as a Snap package. [Visit this page to install the Official Todoist app](https://snapcraft.io/todoist).
 
 # Installation
 
@@ -13,7 +17,7 @@ The package is available in AUR. You can install it with `trizen -S todoist-elec
 ## Gentoo Linux
 
 To emerge ebuild in first you should add  [this](https://github.com/wellWINeo/wellWINeo_overlay) overlay to `repos.conf`, sync and after it you'll be able to do it.
-P.S. The original version of the ebuild was taken from [here](https://gitlab.einfach.org/r900/r900-overlay/-/tree/master/net-im%2Ftodoist-bin), but unfortunately it's for the old version and i've modified it a bit for the newer version. 
+P.S. The original version of the ebuild was taken from [here](https://gitlab.einfach.org/r900/r900-overlay/-/tree/master/net-im%2Ftodoist-bin), but unfortunately it's for the old version and i've modified it a bit for the newer version.
 
 **NOTE:** for security issues, i recommend you mask all packages (`*/*::<overlay_name>`) and unamsk only `net-im/todoist-bin`.
 

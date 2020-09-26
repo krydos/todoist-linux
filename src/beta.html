@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Todoist Beta</title>
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="main.css">
     </head>
@@ -15,6 +14,13 @@
                 const frameWindow = document.getElementsByTagName('iframe')[0].contentWindow;
                 frameWindow.document.getElementsByClassName('public-DraftEditor-content')[0].focus()
             })
+
+            const dynamicTitle = () => {
+                console.log("title:",document.getElementById('view').contentDocument.title);
+                document.title = document.getElementById('view').contentDocument.title;
+            }
+
+            document.getElementById('view').contentWindow.addEventListener('hashchange', dynamicTitle);
         </script>
     </body>
 </html>

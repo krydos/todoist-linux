@@ -8,12 +8,17 @@
     <body>
         <iframe id="view" src="https://beta.todoist.com/app"></iframe>
         <script>
-            // Autofocus the quick add text section.
-
             const {ipcRenderer} = require('electron');
+
+            // Autofocus the quick add text section.
             ipcRenderer.on('focus-quick-add', () => {
                 const frameWindow = document.getElementsByTagName('iframe')[0].contentWindow;
                 frameWindow.document.getElementsByClassName('public-DraftEditor-content')[0].focus()
+            })
+
+            ipcRenderer.on('go-to-anchor', function (event, filter) {
+                const frameWindow = document.getElementById('view').contentWindow;
+                frameWindow.document.getElementById(filter).click();
             })
         </script>
     </body>

@@ -19,22 +19,6 @@ let tray = null;
 let contextMenu;
 let config = {};
 
-// const CONFIG_FILE_NAME = '.todoist-linux.json'
-
-// function getConfigDirectory() {
-//   if (process.platform == 'win32') {
-//     return process.env.HOMEDRIVE + process.env.HOMEPATH;
-//   }
-
-//   // if possible save config in $XDG_CONFIG_HOME
-//   // which is $HOME/.config by default
-//   if (process.env.XDG_CONFIG_HOME) {
-//     return process.env.XDG_CONFIG_HOME;
-//   }
-
-//   return process.env.HOME + '/.config';
-// }
-
 function createTray(win) {
   const configInstance = new ShortcutConfig();
 

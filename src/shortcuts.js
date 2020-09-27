@@ -63,10 +63,8 @@ class shortcuts {
         return;
       }
 
-      // isQuitting is important for
-      // on('close') event where this variable is checked.
-      // In case it is not true then the app just minimized.
-      this.app.isQuitting = true;
+      // forceQuit is important for on('close') event where this variable is checked.
+      this.app.forceQuit = true;
       this.app.quit();
     });
   }

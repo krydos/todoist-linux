@@ -20,6 +20,8 @@ let contextMenu;
 let config = {};
 
 function createTray(win) {
+  const configInstance = new ShortcutConfig();
+
   // if tray-icon is set to null in config file then don't create a tray icon
   if (!config['tray-icon']) {
     return;
@@ -28,32 +30,108 @@ function createTray(win) {
   tray = new Tray(path.join(__dirname, `icons/${config['tray-icon']}`));
   contextMenu = Menu.buildFromTemplate([
     {
-      label: 'Show',
+      label: 'Open Todoist',
       click:  function() {
         win.show();
       },
-      enabled: false,
       id: 'show-win'
     },
     {
-      label: 'Hide',
-      click:  function() {
-        win.hide();
-      },
-      id: 'hide-win'
+      type: 'separator'
     },
     {
-      label: 'Toggle FullScreen',
+      label: 'Add task',
       click:  function() {
-        win.setFullScreen(!win.isFullScreen());
+        win.webContents.sendInputEvent({
+          type: "keyDown",
+          keyCode: "Escape"
+        });
+        win.webContents.sendInputEvent({
+          type: "keyUp",
+          keyCode: "Escape"
+        });
+        win.webContents.sendInputEvent({
+          type: "char",
+          keyCode: 'q'
+        });
+        win.show();
+        win.webContents.send('focus-quick-add');
       },
+      id: 'add-task'
     },
     {
-      label: 'Quit',
+      label: 'Search',
       click:  function() {
-        app.isQuitting = true;
+        win.webContents.sendInputEvent({
+          type: "keyDown",
+          keyCode: "Escape"
+        });
+        win.webContents.sendInputEvent({
+          type: "keyUp",
+          keyCode: "Escape"
+        });
+        win.webContents.sendInputEvent({
+          type: "char",
+          keyCode: 'f'
+        });
+        win.show();
+      },
+      id: 'search'
+    },
+    {
+      label: 'Inbox',
+      click:  function() {
+        win.show();
+        win.webContents.send('go-to-anchor', 'filter_inbox');
+      },
+      id: 'inbox'
+    },
+    {
+      label: 'Today',
+      click:  function() {
+        win.show();
+        win.webContents.send('go-to-anchor', 'filter_today');
+      },
+      id: 'today'
+    },
+    {
+      label: 'Upcoming',
+      click:  function() {
+        win.show();
+        win.webContents.send('go-to-anchor', 'filter_upcoming');
+      },
+      id: 'upcoming'
+    },
+    {
+      type: 'separator'
+    },
+    {
+      label: 'Preferences',
+      click:  function() {
+        shell.openItem(path.join(
+          configInstance.getConfigDirectory(),
+          '.todoist-linux.json'
+        ));
+      },
+      id: 'preferences'
+    },
+    {
+      label: 'Report an issue',
+      click:  function() {
+        shell.openExternal('https://github.com/KryDos/todoist-linux/issues/new');
+      },
+      id: 'report-issue'
+    },
+    {
+      type: 'separator'
+    },
+    {
+      label: 'Quit Todoist',
+      click:  function() {
+        app.forceQuit = true;
         app.quit();
-      }
+      },
+      id: 'quit'
     }
   ]);
   tray.setToolTip('Todoist');
@@ -103,40 +181,24 @@ function createWindow () {
   shortcutsInstance = new shortcuts(win, app);
   shortcutsInstance.registerAllShortcuts();
 
-  // react on close and minimize
-  win.on('minimize',function(event){
+  // Only send to tray on minimize if user is running with tray and minimizing to tray is allowed
+  win.on('minimize',function(event) {
+    if (config['tray-icon'] && config['minimize-to-tray']) {
+      event.preventDefault();
+      win.hide();
+    }
+  });
+
+  win.on('close', function (event) {
+    if (app.forceQuit || !config['tray-icon'] || !config['close-to-tray']) {  
+      // Do the default electron behaviour which is to close the main window
+      return;
+    }
+
     event.preventDefault();
     win.hide();
   });
 
-  win.on('close', function (event) {
-    // we should not hide the window if there is no tray icon
-    // because user will not be able to close the app
-    if (!config['tray-icon']) {
-      app.isQuitting = true;
-    }
-
-    if(!app.isQuitting){
-      event.preventDefault();
-      win.hide();
-    }
-
-    return false;
-  });
-
-  win.on('hide', function() {
-    contextMenu.getMenuItemById('show-win').enabled = true;
-    contextMenu.getMenuItemById('hide-win').enabled = false;
-    tray.setContextMenu(contextMenu);
-  });
-
-  win.on('show', function() {
-    contextMenu.getMenuItemById('show-win').enabled = false;
-    contextMenu.getMenuItemById('hide-win').enabled = true;
-    tray.setContextMenu(contextMenu);
-  });
-
-  win.webContents.on('new-window', handleRedirect)
   // manage size/position of the window
   // so it can be restored next time
   mainWindowState.manage(win);

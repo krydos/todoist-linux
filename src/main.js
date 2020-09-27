@@ -51,7 +51,7 @@ function createTray(win) {
     {
       label: 'Quit',
       click:  function() {
-        app.isQuitting = true;
+        app.forceQuit = true;
         app.quit();
       }
     }
@@ -103,25 +103,22 @@ function createWindow () {
   shortcutsInstance = new shortcuts(win, app);
   shortcutsInstance.registerAllShortcuts();
 
-  // react on close and minimize
-  win.on('minimize',function(event){
-    event.preventDefault();
-    win.hide();
-  });
-
-  win.on('close', function (event) {
-    // we should not hide the window if there is no tray icon
-    // because user will not be able to close the app
-    if (!config['tray-icon']) {
-      app.isQuitting = true;
-    }
-
-    if(!app.isQuitting){
+  // Only send to tray on minimize if user is running with tray and minimizing to tray is allowed
+  win.on('minimize',function(event) {
+    if (config['tray-icon'] && config['minimize-to-tray']) {
       event.preventDefault();
       win.hide();
     }
+  });
 
-    return false;
+  win.on('close', function (event) {
+    if (app.forceQuit || !config['tray-icon'] || !config['close-to-tray']) {  
+      // Do the default electron behaviour which is to close the main window
+      return;
+    }
+
+    event.preventDefault();
+    win.hide();
   });
 
   win.on('hide', function() {

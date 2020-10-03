@@ -1,27 +1,44 @@
-# Todoist Linux (Unofficial)
+<h1 align="center">
+  <img width="500px" src="assets/readme-banner.png">
+  
+  ![AUR Version][aur] ![GitHub top language][gtl] ![License][l]
+</h1>
 
-This app is just an [Electron wrapper](https://electronjs.org/) for Todoist's [web version](https://todoist.com/app).
+[aur]: https://img.shields.io/aur/version/todoist-electron
+[gtl]: https://img.shields.io/github/languages/top/KryDos/todoist-linux
+[l]: https://img.shields.io/github/license/KryDos/todoist-linux
+
+<h5 align="center"> This app is just an <a href="https://electronjs.org/">Electron wrapper</a> for Todoist's <a href="https://todoist.com/app">web version</a>.
 
 This app works with both Windows and Linux.
 
-# Link to Official Linux app
+</h5>
 
-Doist recently released the official app as a Snap package. [Visit this page to install the Official Todoist app](https://snapcraft.io/todoist).
+## Link to Official Linux app
 
-# Installation
+Doist recently released the official app as a snap package. [Visit this page to install the Official Todoist app](https://snapcraft.io/todoist).
 
-## Arch Linux (Thanks to [HadiLatifi](https://github.com/HadiLatifi))
+## Installation
 
-The package is available in AUR. You can install it with `trizen -S todoist-electron`
+### Arch Linux
 
-## Gentoo Linux
+The package is available in AUR. You can install it with:
 
-To emerge ebuild in first you should add  [this](https://github.com/wellWINeo/wellWINeo_overlay) overlay to `repos.conf`, sync and after it you'll be able to do it.
+```sh
+trizen -S todoist-electron
+```
+
+Thanks to [@HadiLatifi](https://github.com/HadiLatifi) for help with the AUR package.
+
+### Gentoo Linux
+
+To emerge ebuild in first you should add [this](https://github.com/wellWINeo/wellWINeo_overlay) overlay to `repos.conf`, sync and after it you'll be able to do it.
+
 P.S. The original version of the ebuild was taken from [here](https://gitlab.einfach.org/r900/r900-overlay/-/tree/master/net-im%2Ftodoist-bin), but unfortunately it's for the old version and i've modified it a bit for the newer version.
 
 **NOTE:** for security issues, i recommend you mask all packages (`*/*::<overlay_name>`) and unamsk only `net-im/todoist-bin`.
 
-## Other systems
+### Other systems
 
 1. Go to [Releases](https://github.com/KryDos/todoist-linux/releases) page and get the RPM/DEB/EXE package.
 
@@ -31,13 +48,13 @@ Alternatively, you can also download the `todoist-linux.zip` package from [Relea
 
 ## Keyboard Shortcuts
 
-* Ctrl+Alt+A - Quickly add a Task
-* Ctrl+Alt+Q - Show or Hide Todoist window
-* Ctrl+Alt+R - Refresh Todoist window content
-* Alt+F4     - Quit Todoist
-* F11        - Toggle Full-screen view
+- <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd> - Quickly add a Task
+- <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Q</kbd> - Show or Hide Todoist window
+- <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>R</kbd> - Refresh Todoist window content
+- <kbd>Alt</kbd> + <kbd>F4</kbd> - Quit Todoist
+- <kbd>F11</kbd> - Toggle Full-screen view
 
-* Any other possible shortcuts are available and usable directly from within the app itself.
+- Any other possible shortcuts are available and usable directly from within the app itself.
 
 Global shortcuts are configurable via `$XDG_CONFIG_HOME/.todoist-linux.json` file (which is located in `~/.config` by default).
 The file is simple JSON with descriptive keys and values that represents shortcuts and their keybindings.
@@ -48,11 +65,11 @@ Use [this page from Electron docs](https://electronjs.org/docs/api/accelerator#a
 
 Same config file `.todoist-linux.json` has other options to configure the app:
 
-* `tray-icon` - tray icon to use. Possible options: `icon.png`, `icon_monochrome.png`, `null` (to hide tray icon completely)
+- `tray-icon` - tray icon to use. Possible options: `icon.png`, `icon_monochrome.png`, `null` (to hide tray icon completely)
 
 ## Why?
 
-The main reason I don't like having the [Todoist web version](https://todoist.com/app) opened is that I can't easily ALT+TAB to it.
+The main reason I don't like having the [Todoist web version](https://todoist.com/app) opened is that I can't easily <kbd>Alt</kbd> + <kbd>Tab</kbd> to it.
 
 And I also really wanted to have global keyboard shortcuts so I can quickly add a task to Todoist.
 
@@ -62,25 +79,43 @@ The initial inspiration I took from [this](https://github.com/kamhix/todoist-lin
 
 The build process is very simple:
 
-1. Clone the repo using `$ git clone https://github.com/krydos/todoist-linux`.
+1. Clone the repo using:
 
-2. Ensure NPM is installed with `$ apt-get install npm`.
+    ```sh
+    git clone https://github.com/krydos/todoist-linux
+    ```
 
-3. Install other project dependencies by running `$ make env` in project root directory.
+2. Ensure NPM is installed with:
 
-4.  Now, to run the app, you can do `$ make up` in the project root directory (or `$ npm run start` in the `src` directory).
+    ```sh
+    sudo apt-get install npm
+    ```
+
+3. Install other project dependencies by running the following command in the project root directory:
+
+    ```sh
+    make env
+    ```
+
+4. Now, to run the app, you can run the following command in the project root directory (or `npm run start` in the `src` directory).
+
+    ```sh
+    make up
+    ```
 
 ### Building Packages
 
 After making your changes, you can simply use any of the below commands to build 64-bit distribution packages.
 
-1. Run `$ make build-rpm` to build `.rpm` packages (for Fedora/CentOS/RHEL/SuSE).
-2. Run `$ make build-deb` to build `.deb` packages (for Debian/Ubuntu and derivatives).
-3. Run `$ make build-pacman` to build `.pacman` packages (for Arch/Manjaro and derivatives).
-4. Run `$ make build-win` to build Windows `.exe` files.
-5. Run `$ make build-linux` to build both `.DEB` and `.RPM` packages.
-6. Run `$ make build-all` to build packages for both Windows and Linux (basically all the above).
+```sh
+make build-rpm # builds RPM packages for Fedora/CentOS/RHEL/SuSE
+make build-deb # builds Debian packages for Debian/Ubuntu
+make build-pacman # builds PACMAN packages for Arch/Manjaro
+make build-win # builds Windows EXE
+make build-linux # builds both Debian and RPM packages
+make build-all # builds all packages
+```
 
-# Contributing
+## Contributing
 
 No rules for contributing. Just send a pull request :)

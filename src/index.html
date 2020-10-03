@@ -16,9 +16,18 @@
                 frameWindow.document.getElementsByClassName('public-DraftEditor-content')[0].focus()
             })
 
+            // Go to a specific page in Todoist's iframe
             ipcRenderer.on('go-to-anchor', function (event, filter) {
                 const frameWindow = document.getElementById('view').contentWindow;
                 frameWindow.document.getElementById(filter).click();
+            })
+
+            // Configure the page to use Todoist Beta
+            ipcRenderer.on('is-beta', () => {
+                console.log("is beta")
+                const frameWindow = document.getElementById('view')
+                frameWindow.src = 'https://beta.todoist.com/app';
+                document.title = 'Todoist Beta';
             })
         </script>
     </body>

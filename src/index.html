@@ -24,7 +24,6 @@
 
             // Configure the page to use Todoist Beta
             ipcRenderer.on('is-beta', () => {
-                console.log("is beta")
                 const frameWindow = document.getElementById('view')
                 frameWindow.src = 'https://beta.todoist.com/app';
                 document.title = 'Todoist Beta';

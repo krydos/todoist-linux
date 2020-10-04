@@ -278,8 +278,12 @@ function createWindow () {
   });
 
   win.on('close', function (event) {
-    if (app.forceQuit || !config['tray-icon'] || !config['close-to-tray']) {  
+    if (app.forceQuit || !config['tray-icon'] || !config['close-to-tray']) {
       // Do the default electron behaviour which is to close the main window
+      // In production build the app is not closed probably due to this bug - https://github.com/electron/electron/issues/10156
+      // call the app.quit() once again, it helps
+      app.forceQuit = true;
+      app.quit();
       return;
     }
 

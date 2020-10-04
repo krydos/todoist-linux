@@ -19,7 +19,7 @@ let tray = null;
 let contextMenu;
 let config = {};
 
-function createTray(win) {
+function createTray() {
   const configInstance = new ShortcutConfig();
 
   // if tray-icon is set to null in config file then don't create a tray icon
@@ -164,7 +164,7 @@ function createWindow () {
     width: mainWindowState.width,
     height: mainWindowState.height,
     minHeight: 600,
-    minWidth: 420,
+    minWidth: 450,
     title: 'Todoist',
     icon: path.join(__dirname, 'icons/icon.png')
   });
@@ -172,12 +172,11 @@ function createWindow () {
 
   // and load the index.html of the app.
   win.loadURL(url.format({
-    pathname: path.join(__dirname, (config['beta'] ? 'beta.html' : 'index.html')),
+    pathname: path.join(__dirname, 'index.html'),
     protocol: 'file:',
     slashes: true
   }));
-
-  createTray(win);
+  
   shortcutsInstance = new shortcuts(win, app);
   shortcutsInstance.registerAllShortcuts();
 
@@ -270,4 +269,16 @@ if (!gotTheLock) {
   });
 }
 
-app.on('ready', createWindow);
+// app.on('ready', createWindow);
+
+app.on('ready', () => {
+  createWindow();
+  createTray();
+
+  win.webContents.on('dom-ready', () => {
+    if (config['beta']) {
+      win.webContents.send('is-beta');
+    }
+  })
+})
+

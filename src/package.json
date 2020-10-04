@@ -1,6 +1,6 @@
 {
   "name": "Todoist",
-  "version": "1.23.0",
+  "version": "1.24.0",
   "description": "Todoist for linux",
   "main": "main.js",
   "scripts": {

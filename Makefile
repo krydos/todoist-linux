@@ -1,5 +1,5 @@
 DIST_DIR=dist
-VERSION=1.23.0
+VERSION=1.24.0
 DROPBOX_DIR=~/Dropbox/projects/binaries
 
 .PHONY: env

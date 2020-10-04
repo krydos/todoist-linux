@@ -200,17 +200,17 @@ function createWindow () {
       submenu: [
         {
           label:'Zoom In',
-          role: 'zoomin', 
+          role: 'zoomin',
           accelerator: 'CommandOrControl+='
         },
         {
           label:'Zoom Out',
-          role: 'zoomout', 
+          role: 'zoomout',
           accelerator: 'CommandOrControl+-'
         },
         {
           label:'Reset Zoom',
-          role: 'resetzoom', 
+          role: 'resetzoom',
           accelerator: 'CommandOrControl+0'
         },
         {
@@ -257,7 +257,7 @@ function createWindow () {
     },
   ])
 
-  Menu.setApplicationMenu(menuBar); 
+  Menu.setApplicationMenu(menuBar);
 
   // and load the index.html of the app.
   win.loadURL(url.format({
@@ -265,7 +265,7 @@ function createWindow () {
     protocol: 'file:',
     slashes: true
   }));
-  
+
   shortcutsInstance = new shortcuts(win, app);
   shortcutsInstance.registerAllShortcuts();
 
@@ -324,10 +324,10 @@ function handleRedirect(e, url) {
   }
 
   /*
-   * The first time the settings button is clicked 
+   * The first time the settings button is clicked
    * the 'new-window' event is emitted with the url to the settings page
-   * The electron default behavior(creating a new window) is prevented 
-   * and instead the contents of the main window are reloaded with the contents 
+   * The electron default behavior(creating a new window) is prevented
+   * and instead the contents of the main window are reloaded with the contents
    * from the settings page effectively emulating the behavior of the website
    */
   if (/prefs\/account/.test(url)) {

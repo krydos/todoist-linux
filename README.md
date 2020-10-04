@@ -1,6 +1,6 @@
 <h1 align="center">
   <img width="500px" src="assets/readme-banner.png">
-  
+
   ![AUR Version][aur] ![GitHub top language][gtl] ![License][l]
 </h1>
 
@@ -66,6 +66,8 @@ Use [this page from Electron docs](https://electronjs.org/docs/api/accelerator#a
 Same config file `.todoist-linux.json` has other options to configure the app:
 
 - `tray-icon` - tray icon to use. Possible options: `icon.png`, `icon_monochrome.png`, `null` (to hide tray icon completely)
+- `minimize-to-tray` - default is `true`. When window is minimized it goes to the tray.
+- `close-to-tray` - default is `true`. When window is closed the app is minimized to the tray.
 
 ## Why?
 

@@ -34,9 +34,9 @@ Thanks to [@HadiLatifi](https://github.com/HadiLatifi) for help with the AUR pac
 
 To emerge ebuild in first you should add [this](https://github.com/wellWINeo/wellWINeo_overlay) overlay to `repos.conf`, sync and after it you'll be able to do it.
 
-P.S. The original version of the ebuild was taken from [here](https://gitlab.einfach.org/r900/r900-overlay/-/tree/master/net-im%2Ftodoist-bin), but unfortunately it's for the old version and i've modified it a bit for the newer version.
+P.S. The original version of the ebuild was taken from [here](https://gitlab.einfach.org/r900/r900-overlay/-/tree/master/net-im%2Ftodoist-bin), but unfortunately, it's for the old version and I've modified it a bit for the newer version.
 
-**NOTE:** for security issues, i recommend you mask all packages (`*/*::<overlay_name>`) and unamsk only `net-im/todoist-bin`.
+**NOTE:** For security issues, I recommend you mask all packages (`*/*::<overlay_name>`) and unmask only `net-im/todoist-bin`.
 
 ### Other systems
 
@@ -71,13 +71,13 @@ Same config file `.todoist-linux.json` has other options to configure the app:
 
 The main reason I don't like having the [Todoist web version](https://todoist.com/app) opened is that I can't easily <kbd>Alt</kbd> + <kbd>Tab</kbd> to it.
 
-And I also really wanted to have global keyboard shortcuts so I can quickly add a task to Todoist.
+And I also really wanted to have global keyboard shortcuts, so I can quickly add a task to Todoist.
 
 The initial inspiration I took from [this](https://github.com/kamhix/todoist-linux) brilliant project of the same web version. Unfortunately, it doesn't seem to be maintained anymore and has some issues with Tray functionality on latest Ubuntu.
 
 ## Build Instructions
 
-The build process is very simple:
+The build process is simple:
 
 1. Clone the repo using:
 
@@ -118,4 +118,4 @@ make build-all # builds all packages
 
 ## Contributing
 
-No rules for contributing. Just send a pull request :)
+No rules for contributing. Just send a pull request. :)

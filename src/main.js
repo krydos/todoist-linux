@@ -1,6 +1,5 @@
-const { app, BrowserWindow, Menu, session } = require("electron");
+const { app, BrowserWindow, Menu } = require("electron");
 const windowStateKeeper = require("electron-window-state");
-const shell = require("electron").shell;
 const path = require("path");
 const url = require("url");
 
@@ -8,23 +7,13 @@ const { ShortcutConfig } = require("./shortcutConfig");
 const createTray = require("./tray");
 const createMenuBar = require("./menuBar");
 const shortcuts = require("./shortcuts");
+const util = require("./util");
 
 let win = {};
-let gOauthWindow = undefined;
 let config = {};
 
-function setCustomUserAgent() {
-    session.defaultSession.webRequest.onBeforeSendHeaders(
-        (details, callback) => {
-            details.requestHeaders["User-Agent"] =
-                "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36";
-            callback({ cancel: false, requestHeaders: details.requestHeaders });
-        }
-    );
-}
-
 function createWindow() {
-    setCustomUserAgent();
+    util.setCustomUserAgent();
 
     const configInstance = new ShortcutConfig();
     config = configInstance.config;
@@ -90,23 +79,7 @@ function createWindow() {
     mainWindowState.manage(win);
 }
 
-var gotTheLock = app.requestSingleInstanceLock();
-
-if (!gotTheLock) {
-    app.quit();
-} else {
-    app.on("second-instance", () => {
-        // Someone tried to run a second instance, we should focus our window.
-        if (win) {
-            if (win.isMinimized()) {
-                win.restore();
-                win.focus();
-            }
-            win.show();
-            win.focus();
-        }
-    });
-}
+util.instanceLock();
 
 app.on("ready", () => {
     createWindow();

@@ -1,7 +1,6 @@
 const {
   app,
   BrowserWindow,
-  Tray,
   Menu,
   session
 } = require('electron');
@@ -12,6 +11,7 @@ const url = require('url');
 
 const {ShortcutConfig} = require('./shortcutConfig');
 const createTray = require('./tray');
+const createMenuBar = require('./menuBar');
 const shortcuts = require('./shortcuts');
 
 let win = {};
@@ -52,93 +52,7 @@ function createWindow () {
   });
 
   win.webContents.setVisualZoomLevelLimits(1, 5);
-
-  var menuBar = Menu.buildFromTemplate([
-    {
-      label: 'File',
-      submenu: [
-        {
-          label: 'Preferences',
-          click:  function() {
-            shell.openItem(path.join(
-              configInstance.getConfigDirectory(),
-              '.todoist-linux.json'
-            ));
-          },
-        },
-        {
-          label:'Quit',
-          click:  function() {
-            app.forceQuit = true;
-            app.quit();
-          },
-          accelerator: config['quit']
-        },
-      ]
-    },
-    {
-      label: 'View',
-      submenu: [
-        {
-          label:'Zoom In',
-          role: 'zoomin',
-          accelerator: 'CommandOrControl+='
-        },
-        {
-          label:'Zoom Out',
-          role: 'zoomout',
-          accelerator: 'CommandOrControl+-'
-        },
-        {
-          label:'Reset Zoom',
-          role: 'resetzoom',
-          accelerator: 'CommandOrControl+0'
-        },
-        {
-          type: 'separator'
-        },
-        {
-          label:'Show/Hide',
-          click:  function() {
-            win.hide();
-          },
-          accelerator: config['show-hide']
-        },
-        {
-          label:'Refresh',
-          click:  function() {
-            win.reload();
-          },
-          accelerator: config['refresh']
-        },
-      ]
-    },
-    {
-      label: 'Help',
-      submenu: [
-        {
-          label: 'GitHub',
-          click:  function() {
-            shell.openExternal('https://github.com/KryDos/todoist-linux');
-          },
-        },
-        {
-          label: 'Changelog',
-          click:  function() {
-            shell.openExternal('https://github.com/krydos/todoist-linux/releases');
-          },
-        },
-        {
-          label: 'Report an issue',
-          click:  function() {
-            shell.openExternal('https://github.com/KryDos/todoist-linux/issues/new');
-          },
-        },
-      ]
-    },
-  ])
-
-  Menu.setApplicationMenu(menuBar);
+  Menu.setApplicationMenu(createMenuBar(config));
 
   // and load the index.html of the app.
   win.loadURL(url.format({

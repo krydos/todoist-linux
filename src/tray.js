@@ -4,7 +4,7 @@ const path = require("path");
 
 const { ShortcutConfig } = require("./shortcutConfig");
 
-function createTray(config) {
+function createTray(config, win) {
     const configInstance = new ShortcutConfig();
 
     // if tray-icon is set to null in config file then don't create a tray icon

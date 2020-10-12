@@ -1,4 +1,4 @@
-const { app, session } = require("electron");
+const { session } = require("electron");
 
 function setCustomUserAgent() {
     session.defaultSession.webRequest.onBeforeSendHeaders(
@@ -10,24 +10,4 @@ function setCustomUserAgent() {
     );
 }
 
-function instanceLock() {
-    var gotTheLock = app.requestSingleInstanceLock();
-
-    if (!gotTheLock) {
-        app.quit();
-    } else {
-        app.on("second-instance", () => {
-            // Someone tried to run a second instance, we should focus our window.
-            if (win) {
-                if (win.isMinimized()) {
-                    win.restore();
-                    win.focus();
-                }
-                win.show();
-                win.focus();
-            }
-        });
-    }
-}
-
-module.exports = { setCustomUserAgent, instanceLock };
+module.exports = { setCustomUserAgent };

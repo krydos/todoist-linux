@@ -4,7 +4,7 @@ const path = require("path");
 
 const { ShortcutConfig } = require("./shortcutConfig");
 
-function createMenuBar(config) {
+function createMenuBar(config, win) {
     const configInstance = new ShortcutConfig();
 
     return Menu.buildFromTemplate([

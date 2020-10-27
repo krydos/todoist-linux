@@ -174,10 +174,17 @@ function createWindow () {
 
   var menuBar = Menu.buildFromTemplate([
     {
-      label: 'File',
+      label: '&File',
       submenu: [
+        { role: 'undo' },
+        { role: 'redo' },
+        { type: 'separator' },
+        { role: 'cut' },
+        { role: 'copy' },
+        { role: 'paste' },
+        { type: 'separator' },
         {
-          label: 'Preferences',
+          label: '&Preferences',
           click:  function() {
             shell.openItem(path.join(
               configInstance.getConfigDirectory(),
@@ -196,26 +203,26 @@ function createWindow () {
       ]
     },
     {
-      label: 'View',
+      label: '&View',
       submenu: [
         {
-          label:'Zoom In',
+          label:'Reload',
+          click:  function() {
+            win.reload();
+          },
+          accelerator: config['refresh']
+        },
+        { role: 'forcereload' },
+        { role: 'toggledevtools' },
+        { type: 'separator' },
+        { role: 'resetzoom' },
+        { 
           role: 'zoomin',
-          accelerator: 'CommandOrControl+='
+          accelerator: 'commandOrcontrol+='
         },
-        {
-          label:'Zoom Out',
-          role: 'zoomout',
-          accelerator: 'CommandOrControl+-'
-        },
-        {
-          label:'Reset Zoom',
-          role: 'resetzoom',
-          accelerator: 'CommandOrControl+0'
-        },
-        {
-          type: 'separator'
-        },
+        { role: 'zoomout' },
+        { type: 'separator' },
+        { role: 'togglefullscreen' },
         {
           label:'Show/Hide',
           click:  function() {
@@ -223,17 +230,10 @@ function createWindow () {
           },
           accelerator: config['show-hide']
         },
-        {
-          label:'Refresh',
-          click:  function() {
-            win.reload();
-          },
-          accelerator: config['refresh']
-        },
       ]
     },
     {
-      label: 'Help',
+      label: '&Help',
       submenu: [
         {
           label: 'GitHub',
@@ -242,15 +242,15 @@ function createWindow () {
           },
         },
         {
-          label: 'Changelog',
-          click:  function() {
-            shell.openExternal('https://github.com/krydos/todoist-linux/releases');
-          },
-        },
-        {
           label: 'Report an issue',
           click:  function() {
             shell.openExternal('https://github.com/KryDos/todoist-linux/issues/new');
+          },
+        },
+        {
+          label: 'Changelog',
+          click:  function() {
+            shell.openExternal('https://github.com/krydos/todoist-linux/releases');
           },
         },
       ]

@@ -257,6 +257,11 @@ function createWindow () {
     },
   ])
 
+  if (!config['toggle-menubar']) {
+    win.autoHideMenuBar = false
+    win.setMenuBarVisibility(false)
+  }     
+  
   Menu.setApplicationMenu(menuBar);
 
   // and load the index.html of the app.

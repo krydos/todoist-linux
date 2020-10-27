@@ -93,6 +93,7 @@ class ShortcutConfig {
       'beta': false,
       'quit': 'Alt+F4',
       'tray-icon': 'icon.png',
+      'toggle-menubar': false,
       'minimize-to-tray': true,
       'close-to-tray': true,
     }

@@ -362,16 +362,20 @@ if (!gotTheLock) {
   });
 }
 
-// app.on('ready', createWindow);
-
 app.on('ready', () => {
   createWindow();
   createTray();
 
+  // If configured to run beta, tell index.html
   win.webContents.on('dom-ready', () => {
     if (config['beta']) {
       win.webContents.send('is-beta');
-    }
+    }   
   })
-})
 
+  // Open links in the default browser
+  win.webContents.on('new-window', function(e, url) {
+    e.preventDefault();
+    require('electron').shell.openExternal(url);
+  }); 
+})

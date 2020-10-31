@@ -206,7 +206,7 @@ function createWindow () {
       label: '&View',
       submenu: [
         {
-          label:'Reload',
+          label:'&Reload',
           click:  function() {
             win.reload();
           },
@@ -224,7 +224,7 @@ function createWindow () {
         { type: 'separator' },
         { role: 'togglefullscreen' },
         {
-          label:'Show/Hide',
+          label:'&Show/Hide',
           click:  function() {
             win.hide();
           },
@@ -250,7 +250,7 @@ function createWindow () {
         {
           label: 'Changelog',
           click:  function() {
-            shell.openExternal('https://github.com/krydos/todoist-linux/releases');
+            shell.openExternal('https://github.com/KryDos/todoist-linux/releases');
           },
         },
       ]

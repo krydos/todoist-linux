@@ -14,12 +14,7 @@ function createMenuBar(config, win) {
                 {
                     label: "Preferences",
                     click: function () {
-                        shell.openItem(
-                            path.join(
-                                configInstance.getConfigDirectory(),
-                                ".todoist-linux.json"
-                            )
-                        );
+                        shell.openItem(configInstance.getConfigFilename());
                     },
                 },
                 {

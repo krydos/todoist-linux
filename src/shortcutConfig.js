@@ -26,14 +26,12 @@ class ShortcutConfig {
     }
 
     updateShortcutsFromConfigFile() {
-        const configPath = path.join(
-            this.getConfigDirectory(),
-            CONFIG_FILE_NAME
-        );
-
         try {
             this.config = JSON.parse(
-                fs.readFileSync(new URL("file://" + configPath), "utf8")
+                fs.readFileSync(
+                    new URL("file://" + this.getConfigFilename()),
+                    "utf8"
+                )
             );
         } catch (e) {
             dialog.showMessageBox({
@@ -46,13 +44,8 @@ class ShortcutConfig {
     }
 
     createDefaultConfigFile() {
-        const configPath = path.join(
-            this.getConfigDirectory(),
-            CONFIG_FILE_NAME
-        );
-
         fs.writeFileSync(
-            configPath,
+            this.getConfigFilename(),
             JSON.stringify(this.getDefaultConfig(), null, 4)
         );
     }
@@ -71,12 +64,12 @@ class ShortcutConfig {
         return process.env.HOME + "/.config";
     }
 
+    getConfigFilename() {
+        return path.join(this.getConfigDirectory(), CONFIG_FILE_NAME);
+    }
+
     checkIfConfigFileExists() {
-        const configPath = path.join(
-            this.getConfigDirectory(),
-            CONFIG_FILE_NAME
-        );
-        return fs.existsSync(configPath);
+        return fs.existsSync(this.getConfigFilename());
     }
 
     getDefaultConfig() {

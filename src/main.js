@@ -35,6 +35,7 @@ function createWindow() {
         title: "Todoist",
         icon: path.join(__dirname, "icons/icon.png"),
         autoHideMenuBar: true,
+        show: !(config["start-minimized"] === true),
     });
 
     win.webContents.setVisualZoomLevelLimits(1, 5);

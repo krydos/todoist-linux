@@ -69,6 +69,7 @@ Same config file `.todoist-linux.json` has other options to configure the app:
 -   `tray-icon` - tray icon to use. Possible options: `icon.png`, `icon_monochrome.png`, `null` (to hide tray icon completely)
 -   `minimize-to-tray` - default is `true`. When window is minimized it goes to the tray.
 -   `close-to-tray` - default is `true`. When window is closed the app is minimized to the tray.
+-   `start-minimized` - default is `false`. App is started minimized (in tray).
 
 ## Why?
 

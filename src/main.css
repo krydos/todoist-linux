@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
     width: 100%;
     height: 100%;
     margin: 0px;
@@ -13,13 +14,21 @@ body > .loader {
 }
 
 @keyframes blink {
-    0% { opacity: 0.1; }
-    100% { opacity: 1; }
+    0% {
+        opacity: 0.1;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 @-webkit-keyframes blink {
-    0% { opacity: 0.1; }
-    100% { opacity: 1; }
+    0% {
+        opacity: 0.1;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .loader .logo {

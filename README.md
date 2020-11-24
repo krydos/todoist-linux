@@ -1,7 +1,8 @@
 <h1 align="center">
   <img width="500px" src="assets/readme-banner.png">
 
-  ![AUR Version][aur] ![GitHub top language][gtl] ![License][l]
+![AUR Version][aur] ![GitHub top language][gtl] ![License][l]
+
 </h1>
 
 [aur]: https://img.shields.io/aur/version/todoist-electron
@@ -48,13 +49,13 @@ Alternatively, you can also download the `todoist-linux.zip` package from [Relea
 
 ## Keyboard Shortcuts
 
-- <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd> - Quickly add a Task
-- <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Q</kbd> - Show or Hide Todoist window
-- <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>R</kbd> - Refresh Todoist window content
-- <kbd>Alt</kbd> + <kbd>F4</kbd> - Quit Todoist
-- <kbd>F11</kbd> - Toggle Full-screen view
+-   <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd> - Quickly add a Task
+-   <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Q</kbd> - Show or Hide Todoist window
+-   <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>R</kbd> - Refresh Todoist window content
+-   <kbd>Alt</kbd> + <kbd>F4</kbd> - Quit Todoist
+-   <kbd>F11</kbd> - Toggle Full-screen view
 
-- Any other possible shortcuts are available and usable directly from within the app itself.
+-   Any other possible shortcuts are available and usable directly from within the app itself.
 
 Global shortcuts are configurable via `$XDG_CONFIG_HOME/.todoist-linux.json` file (which is located in `~/.config` by default).
 The file is simple JSON with descriptive keys and values that represents shortcuts and their keybindings.
@@ -65,9 +66,9 @@ Use [this page from Electron docs](https://electronjs.org/docs/api/accelerator#a
 
 Same config file `.todoist-linux.json` has other options to configure the app:
 
-- `tray-icon` - tray icon to use. Possible options: `icon.png`, `icon_monochrome.png`, `null` (to hide tray icon completely)
-- `minimize-to-tray` - default is `true`. When window is minimized it goes to the tray.
-- `close-to-tray` - default is `true`. When window is closed the app is minimized to the tray.
+-   `tray-icon` - tray icon to use. Possible options: `icon.png`, `icon_monochrome.png`, `null` (to hide tray icon completely)
+-   `minimize-to-tray` - default is `true`. When window is minimized it goes to the tray.
+-   `close-to-tray` - default is `true`. When window is closed the app is minimized to the tray.
 
 ## Why?
 

@@ -1,0 +1,33 @@
+version: 2.1
+
+jobs:
+  build-and-release:
+    docker:
+      - image: circleci/node:10
+    steps:
+      - checkout
+      - run: rm -rf dist/*
+      - run: sudo dpkg --add-architecture i386
+      - run: sudo apt update
+      - run: sudo apt install rpm
+      - run: sudo apt install bsdtar
+      - run: sudo apt install wine
+      - run: sudo apt install wine32
+      - run: sudo npm install -g github-release-cli
+      - run: sudo npm install -g @babel/runtime
+      - run: make env
+      - run: make build-all
+      - run: make archive-unpacked
+      - run: make push-release
+
+workflows:
+  version: 2
+  build_and_make_release:
+    jobs:
+      - build-and-release:
+          filters:
+            tags:
+              only: /^.+/
+            branches:
+              ignore: /.*/
+

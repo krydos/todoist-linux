@@ -95,6 +95,7 @@ class ShortcutConfig {
       'tray-icon': 'icon.png',
       'minimize-to-tray': true,
       'close-to-tray': true,
+      'start-in-tray': false,
     }
   }
 }

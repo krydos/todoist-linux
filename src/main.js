@@ -167,7 +167,8 @@ function createWindow () {
     minWidth: 450,
     title: 'Todoist',
     icon: path.join(__dirname, 'icons/icon.png'),
-    autoHideMenuBar: true
+    autoHideMenuBar: true,
+    show: !(config["start-in-tray"] === true)
   });
 
   win.webContents.setVisualZoomLevelLimits(1, 5);

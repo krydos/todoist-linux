@@ -26,10 +26,7 @@ class ShortcutConfig {
   }
 
   updateShortcutsFromConfigFile() {
-    const configPath = path.join(
-      this.getConfigDirectory(),
-      CONFIG_FILE_NAME
-    );
+    const configPath = this.getConfigFilename();
 
     try {
       this.config = JSON.parse(
@@ -48,10 +45,7 @@ class ShortcutConfig {
   }
 
   createDefaultConfigFile() {
-    const configPath = path.join(
-      this.getConfigDirectory(),
-      CONFIG_FILE_NAME
-    );
+    const configPath = this.getConfigFilename();
 
     fs.writeFileSync(
       configPath,

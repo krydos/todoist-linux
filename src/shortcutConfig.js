@@ -77,11 +77,15 @@ class ShortcutConfig {
     return process.env.HOME + '/.config';
   }
 
-  checkIfConfigFileExists() {
-    const configPath = path.join(
+  getConfigFilename() {
+    return path.join(
       this.getConfigDirectory(),
       CONFIG_FILE_NAME
     );
+  }
+
+  checkIfConfigFileExists() {
+    const configPath = this.getConfigFilename();
     return fs.existsSync(configPath);
   }
 

@@ -108,10 +108,7 @@ function createTray() {
     {
       label: 'Preferences',
       click:  function() {
-        shell.openItem(path.join(
-          configInstance.getConfigDirectory(),
-          '.todoist-linux.json'
-        ));
+        shell.openItem(configInstance.getConfigFilename());
       },
       id: 'preferences'
     },
@@ -180,10 +177,7 @@ function createWindow () {
         {
           label: 'Preferences',
           click:  function() {
-            shell.openItem(path.join(
-              configInstance.getConfigDirectory(),
-              '.todoist-linux.json'
-            ));
+            shell.openItem(configInstance.getConfigFilename());
           },
         },
         {

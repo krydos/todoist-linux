@@ -108,10 +108,7 @@ function createTray() {
     {
       label: 'Preferences',
       click:  function() {
-        shell.openItem(path.join(
-          configInstance.getConfigDirectory(),
-          '.todoist-linux.json'
-        ));
+        shell.openItem(configInstance.getConfigFilename());
       },
       id: 'preferences'
     },
@@ -167,7 +164,8 @@ function createWindow () {
     minWidth: 450,
     title: 'Todoist',
     icon: path.join(__dirname, 'icons/icon.png'),
-    autoHideMenuBar: true
+    autoHideMenuBar: true,
+    show: !(config["start-in-tray"] === true)
   });
 
   win.webContents.setVisualZoomLevelLimits(1, 5);
@@ -179,10 +177,7 @@ function createWindow () {
         {
           label: 'Preferences',
           click:  function() {
-            shell.openItem(path.join(
-              configInstance.getConfigDirectory(),
-              '.todoist-linux.json'
-            ));
+            shell.openItem(configInstance.getConfigFilename());
           },
         },
         {

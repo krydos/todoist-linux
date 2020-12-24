@@ -368,4 +368,20 @@ app.on('ready', () => {
       win.webContents.send('is-beta');
     }
   })
+
+  // https://stackoverflow.com/a/49860597/9264137
+  win.webContents.on('new-window', function(e, url) {
+
+    // make sure login and Todoist urls stay in electron perimeter
+    if(url.includes('https://accounts.google.com/o/') || 
+       url.includes('https://www.facebook.com/v2.8/dialog/oauth') || 
+       url.includes('todoist.com') || 
+       url.includes('https://appleid.apple.com/auth/authorize')) {
+      return;
+    }
+  
+    // and open every other protocols on the browser      
+    e.preventDefault();
+    shell.openExternal(url);
+  });
 })

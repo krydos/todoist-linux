@@ -69,6 +69,7 @@ Same config file `.todoist-linux.json` has other options to configure the app:
 - `minimize-to-tray` - default is `true`. When window is minimized it goes to the tray.
 - `close-to-tray` - default is `true`. When window is closed the app is minimized to the tray.
 - `toggle-menubar` - default is `true`. When `true`, zoom in/out functionality is enabled and a menubar is togglable using <kbd>Alt</kbd>. If you use the <kbd>Alt</kbd> + <kbd>Left Click</kbd> functionality of Todoist, you may want to disable this feature (this will also disable zoom functionality).
+- `start-in-tray` - default is `false`. App is started in tray.
 
 ## Why?
 

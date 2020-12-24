@@ -1,6 +1,7 @@
 DIST_DIR=dist
 VERSION=1.24.0
 DROPBOX_DIR=~/Dropbox/projects/binaries
+RELEASE_FILES=$(shell ls --quoting-style=shell-escape-always dist/Todoist*) dist/todoist-linux.zip
 
 .PHONY: env
 env:
@@ -57,3 +58,7 @@ clean:
 .PHONY: list
 list:
 	@$(MAKE) -pRrq -f $(lastword $(MAKEFILE_LIST)) : 2>/dev/null | awk -v RS= -F: '/^# File/,/^# Finished Make data base/ {if ($$1 !~ "^[#.]") {print $$1}}' | sort | egrep -v -e '^[^[:alnum:]]' -e '^$@$$'
+
+.PHONY: push-release
+push-release:
+	github-release upload --owner krydos --repo todoist-linux --token ${GITHUB_TOKEN} --tag "${CIRCLE_TAG}" --release-name "Todoist Linux $(VERSION)" --body "..." $(RELEASE_FILES)

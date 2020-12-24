@@ -68,7 +68,7 @@ Same config file `.todoist-linux.json` has other options to configure the app:
 - `tray-icon` - tray icon to use. Possible options: `icon.png`, `icon_monochrome.png`, `null` (to hide tray icon completely)
 - `minimize-to-tray` - default is `true`. When window is minimized it goes to the tray.
 - `close-to-tray` - default is `true`. When window is closed the app is minimized to the tray.
-- `toggle-menubar` - default is `false`. When `true`, zoom in/out functionality is enabled and a menubar is togglable using <kbd>Alt</kbd>. 
+- `toggle-menubar` - default is `true`. When `true`, zoom in/out functionality is enabled and a menubar is togglable using <kbd>Alt</kbd>. If you use the <kbd>Alt</kbd> + <kbd>Left Click</kbd> functionality of Todoist, you may want to disable this feature (this will also disable zoom functionality).
 
 ## Why?
 

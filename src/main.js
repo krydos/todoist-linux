@@ -167,7 +167,7 @@ function createWindow () {
     minWidth: 450,
     title: 'Todoist',
     icon: path.join(__dirname, 'icons/icon.png'),
-    autoHideMenuBar: true
+    autoHideMenuBar: config['toggle-menubar']
   });
 
   win.webContents.setVisualZoomLevelLimits(1, 5);
@@ -257,13 +257,9 @@ function createWindow () {
     },
   ])
 
-  if (!config['toggle-menubar']) {
-    win.autoHideMenuBar = false
-    win.setMenuBarVisibility(false)
-  }     
-  
   Menu.setApplicationMenu(menuBar);
-
+  win.setMenuBarVisibility(false) 
+  
   // and load the index.html of the app.
   win.loadURL(url.format({
     pathname: path.join(__dirname, 'index.html'),

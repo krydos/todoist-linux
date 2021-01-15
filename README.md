@@ -14,6 +14,12 @@ This app works with both Windows and Linux.
 
 </h5>
 
+## Project is Archived
+
+I don't have time to support it anymore plus Todoist guys released an official Linux App. Feel free to fork the repo or contact me for any questions.
+
+**Thanks to all the contributors who helped me to support this app. Love you!**
+
 ## Link to Official Linux app
 
 Doist recently released the official app as a snap package. [Visit this page to install the Official Todoist app](https://snapcraft.io/todoist).
